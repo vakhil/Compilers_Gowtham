@@ -1268,7 +1268,7 @@ def t_error(t):
 lexer = lex.lex()
 
 #inputa = raw_input()
-lexer.input('(')
+lexer.input('Array.new(10)')
 
 
 for token in lexer:

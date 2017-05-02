@@ -151,7 +151,7 @@ def p_ASGN_basic(p) :
 	TAC.emit('=',place,str(p[3]['place']),'')
 	  # if p[1] == 'a' and p[3]['place'] == '3' :
 	  #   print "HOLLO"
-	print p[3], "OKY" , p[1]
+	#print p[3], "OKY" , p[1]
 	p[0]['code']=p[3]['code']+['='+','+str(place)+','+str(p[3]['place']) +','+'' ]
   else :
 	sym_tab.addID(p[1], p[3]['type'])
@@ -165,6 +165,28 @@ def p_ASGN_basic(p) :
 
 	#p[0]['code']=p[3]['code']+['='+','+str(p[1])+','+str(p[3]['place']) +','+'' ]
 
+
+def p_ARRAY_ASGN(p) :
+	'''ASGN : Identifier EQUALS ARRAY DOT NEW LPAREN NUMBER RPAREN '''
+	p[0] = {}
+	if sym_tab.exists(p[1]):
+		sym_tab.add_attri(p[1], 'type', 'ARRAY')
+		if p[1] in sym_tab.scope[len(sym_tab.scope)-1] :
+		  place = sym_tab.getAttri(p[1],sym_tab.scope[len(sym_tab.scope)-1]['__scope__'])
+		else :
+		  disp_val = sym_tab.getAttri(p[1],'level')
+		  offset = sym_tab.getAttri(p[1],'offset')
+		  place = sym_tab.new_temp((disp_val, offset), variable=p[1])
+		  sym_tab.add_attri(p[1],sym_tab.scope[len(self.scope) - 1]['__scope__'],p[1])
+		TAC.emit('=','[]',place,p[7])
+		p[0]['code']=['='+','+'[]'+','+str(place)+','+p[7] ]
+	else:
+		sym_tab.addID(p[1], 'ARRAY')
+		# Create a temporary for the current scope
+		displayValue, offset = sym_tab.getAttri(p[1], 'scopeLevel'), sym_tab.getAttri(p[1], 'offset')
+		place = sym_tab.new_temp((displayValue, offset), variable=p[1])
+		sym_tab.add_attri(p[1], sym_tab.scope[len(sym_tab.scope)-1]['__scope__'], p[1])
+		TAC.emit('=','[]',place,p[7])
 
 
   

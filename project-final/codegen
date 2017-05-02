@@ -178,6 +178,8 @@ class block:
 				else : 
 					print "\tjmp ","%s"%(Instruction.speci)
 
+
+
 			if Instruction.operator == 'IFgoto' :
 				# print register_desc ,"start"
 				final_add =Instruction.in1
@@ -263,6 +265,7 @@ class block:
 					print "\tcmp ",Instruction.in1,", ",Instruction.in2
 					print "\tjle ","Block_",required	'''
 				# print register_desc,	"end"	
+
 
 			return
 
@@ -771,6 +774,9 @@ class block:
 				# if Instruction.in1 in symbol_table :
 				# 	if line_information[Instruction.line_num][Instruction.in1].next_use == -99:
 				# 		if not Instruction.in1 == Instruction.out: 
+				# 			for add in address_desc[Instruction.in1]:
+
+
 				# 			address_desc[Instruction.in1] = []
 				# 			address_desc[Instruction.in1].append(Instruction.in1)
 				# 			for addr in register_desc :
@@ -881,10 +887,8 @@ class block:
 		# 	print "" 
 
 		for Ins in self.listi:
-				self.gencode(Ins)			
-				# print "KATTAPPA"
-				# print address_desc
-				# print register_desc
+			self.gencode(Ins)	
+
 
 
 
@@ -911,11 +915,29 @@ class block:
 
 
 		############Moving everything back into the memory##################################
+		# for variables in address_desc :
+		# 	for lists in address_desc[variables]:
+		# 		for reg in register_desc:
+		# 			if reg in lists :
+		# 				print "\tmovl ",reg,", %s"%(variables)
+
+
+		
+		# for variables in address_desc :
+		# 	address_desc[variables] = []
+		# 	address_desc[variables].append(variables)
+
+		# for reg in register_desc :
+		# 	register_desc[reg] = []
+
+			
 		for variables in address_desc :
-			for lists in address_desc[variables]:
-				for reg in register_desc:
-					if reg in lists :
-						print "\tmovl ",reg,", %s"%(variables)
+				lists = address_desc[variables]
+				for items in lists:
+						
+							
+						if items in register_desc:																	
+								print "\tmovl %s,  "%(items), "%s"%(variables)
 
 		
 		for variables in address_desc :
@@ -924,6 +946,7 @@ class block:
 
 		for reg in register_desc :
 			register_desc[reg] = []
+
 		#########################################
 		
 		#print address_desc

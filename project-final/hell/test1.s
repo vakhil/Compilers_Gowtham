@@ -39,16 +39,16 @@ _start:
 	movl $3, %edi
 	movl $7, %ecx
 	movl $0, %esi
-	movl  %ebx , a
-	movl  %eax , b
-	movl  %esi , temp
-	movl  %esi , t9
-	movl  %edi , i
-	movl  %ecx , t7
-	movl  %edi , t5
-	movl  %eax , t3
-	movl  %ebx , t1
-	movl  %ecx , n
+	movl %ebx,   a
+	movl %eax,   b
+	movl %esi,   temp
+	movl %esi,   t9
+	movl %edi,   i
+	movl %ecx,   t7
+	movl %edi,   t5
+	movl %eax,   t3
+	movl %ebx,   t1
+	movl %ecx,   n
 Block_1 :
 
 	movl (i) , %ebx
