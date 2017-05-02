@@ -95,12 +95,12 @@ class block:
 
 
 						#print "REGISTER ", reg
-						for vari in register_desc[register] :
-							if not vari == Instruction.out:
-								# print "movl %s ,"%register,"%s"%vari, "SEX"
-								#address_desc[vari].remove(register)
-								if vari not in address_desc[vari]:
-									address_desc[vari].append(vari)
+							# for vari in register_desc[register] :
+							# 	if not vari == Instruction.out:
+							# 		# print "movl %s ,"%register,"%s"%vari, "SEX"
+							# 		#address_desc[vari].remove(register)
+							# 		if vari not in address_desc[vari]:
+							# 			address_desc[vari].append(vari)
 
 						
 						#register_desc[register]=Instruction.out
@@ -118,7 +118,8 @@ class block:
 				# 	print "I am here........................................................"	
 				# 	print line_information[Instruction.line_num][Instruction.out].symbol,line_information[Instruction.line_num][Instruction.out].live,line_information[Instruction.line_num][Instruction.out].next_use, "Fuck"	
 				if not line_information[Instruction.line_num][Instruction.out].next_use == -99 :
-					
+					###Never used
+					print "NEVER USED"
 					return self.heuristic(line_num)
 
 				else:
@@ -427,9 +428,11 @@ class block:
 
 
 
+
 				if Instruction.in1 in symbol_table :
 					L = ""
 					Y_dup = ""
+
 					lists = address_desc[Instruction.in1]
 					
 					for loc in lists:
@@ -437,18 +440,25 @@ class block:
 							Y_dup = loc
 							address_desc[Instruction.out] = []
 							address_desc[Instruction.out].append( loc)
-							register_desc[loc].append(Instruction.out)
-						if  line_information[Instruction.line_num][Instruction.in1].next_use == -99 :
-							list1 = address_desc[Instruction.in1]
-							for addr in list1:
-								if addr in register_desc :
-									if Instruction.in1 in register_desc[addr]:
-										register_desc[addr].remove(Instruction.in1)
+							register_desc[loc].append(Instruction.out) ## reg_desc['%eax' ] = [a,b]
+							# if Instruction.in1 == 't11':
+								# print register_desc
+								# print address_desc
 
-										
-							print "\tmovl ",loc,", ",Instruction.in1
-							address_desc[Instruction.in1] = []
-							address_desc[Instruction.in1].append(Instruction.in1)
+
+
+						# if  line_information[Instruction.line_num][Instruction.in1].next_use == -99 :
+						# 	list1 = address_desc[Instruction.in1]
+						# 	for addr in list1:
+						# 		if addr in register_desc :
+						# 			if Instruction.in1 in register_desc[addr]:
+						# 				register_desc[addr].remove(Instruction.in1)
+						# 				print "\tmovl ",loc,", ",Instruction.in1
+							
+
+							
+						# 	address_desc[Instruction.in1] = []
+						# 	address_desc[Instruction.in1].append(Instruction.in1)
 
 
 					if  Y_dup == "":	
@@ -456,33 +466,39 @@ class block:
 
 
 						print "\tmovl ",Instruction.in1,", ",L 
-						address_desc[Instruction.in1] = []
-						address_desc[Instruction.in1].append(L)
-						
-					
+						####After every move from Memory to register, do this same shit####
 						register_desc[L] = []
-						register_desc[L].append(Instruction.out)
 						register_desc[L].append(Instruction.in1)
+						address_desc[Instruction.in1].append(L)
+						#################################################################
 
 
+						###Now the specific code for a = d ############################
+
+						
+						register_desc[L].append(Instruction.out)
+						address_desc[Instruction.out] = []
+						address_desc[Instruction.out].append(L)
+
+						####Empyting all other registers where Instruction.out was presesnt before this
+						register_desc
+
+						################################################################
 
 
 				else :
 
 					L = self.getreg(Instruction,Instruction.line_num)
+					# print "DABBY"
 					print "\tmovl $%s, %s"%(Instruction.in1,L)
+					###Now the specific code for a = d ############################
 
-					if L in register_desc: 
-						address_desc[Instruction.out] = []
-						address_desc[Instruction.out].append(L)
-						register_desc[L].append(Instruction.out)
+					
+					register_desc[L].append(Instruction.out)
+					address_desc[Instruction.out] = []
+					address_desc[Instruction.out].append(L)
 
-					else:
-						address_desc[Instruction.out] = []
-						address_desc[Instruction.out].append(L)		
-
-
-				
+					################################################################			
 				return
 					
 
@@ -606,16 +622,28 @@ class block:
 					# print Y_loc , L , "Sexs"
 					# print register_desc[L]
 
-					for addr in lists:
-						if addr in register_desc :
-							Y_loc = addr
-						
+					for items in register_desc:
+						for lis in lists:
+							if items == lis :
+								Y_loc = items
+
+
+
+
+									
 					if L in register_desc:
 						if not Y_loc == L :
 							print "\tmovl ",Y_loc,", ", L
-						else:
-							print "\tmovl ",Y_loc,", ", Instruction.in1 
+							register_desc[L] = []
+							#address_desc[Instruction.in1].append(L)
+							#print "SPEC", address_desc['temp'], register_desc['%edi']
+						# else:
+						# 	print "\tmovl ",Y_loc,", ", Instruction.in1 
+
+
 					else:
+						###This is the case when getreg does not return register 
+						print "SPARSE CASEE"
 						if not Y_loc in register_desc:
 							for temp1 in register_desc:
 								if temp1 == "%eax":
@@ -632,15 +660,21 @@ class block:
 						else:
 							print "\tmovl ",Y_loc,", ", L		
 				else :
-					print "\tmovl $%s ,"%Instruction.in1,L
+					print "\tmovl $%s ,%s"%Instruction.in1,L
+					register_desc[L] = []
 				if Instruction.in2 in symbol_table: 
 					lists = address_desc[Instruction.in2]
 					Z_loc = Instruction.in2
 					for addr in lists:
 						if addr in register_desc :
 							Z_loc = addr
+
+
 				else:
 					Z_loc = "$%s"%(Instruction.in2)
+
+
+
 
 
 				'''
@@ -728,33 +762,30 @@ class block:
 						if Instruction.out in register_desc[reg] :
 							register_desc[reg].remove(Instruction.out)
 
-				if L in register_desc:
-					for vari in register_desc[L]:
-						if not vari == Instruction.out :
-							register_desc[L].remove(vari)
 
 				# for bugs in register_desc :
 				# 	if not bugs == L :
 				# 		if Instruction.out in register_desc[bugs]:
 				# 			register_desc[bugs].remove(Instruction.out)
-				if Instruction.in1 in symbol_table :
-					if line_information[Instruction.line_num][Instruction.in1].next_use == -99:
-						if not Instruction.in1 == Instruction.out: 
-							address_desc[Instruction.in1] = []
-							address_desc[Instruction.in1].append(Instruction.in1)
-							for addr in register_desc :
-								for vari in register_desc[addr] :
-									if vari == Instruction.in1:
-										register_desc[addr].remove(Instruction.in1)
-				if Instruction.in2 in symbol_table :
-					if line_information[Instruction.line_num][Instruction.in2].next_use == -99:
-						if not Instruction.out == Instruction.in2:
-							address_desc[Instruction.in2] = []
-							address_desc[Instruction.in2].append(Instruction.in2)
-							for addr in register_desc :
-								for vari in register_desc[addr] :
-									if vari == Instruction.in2:
-										register_desc[addr].remove(Instruction.in2)
+				#print "ss", address_desc[Instruction.in2]
+				# if Instruction.in1 in symbol_table :
+				# 	if line_information[Instruction.line_num][Instruction.in1].next_use == -99:
+				# 		if not Instruction.in1 == Instruction.out: 
+				# 			address_desc[Instruction.in1] = []
+				# 			address_desc[Instruction.in1].append(Instruction.in1)
+				# 			for addr in register_desc :
+				# 				for vari in register_desc[addr] :
+				# 					if vari == Instruction.in1:
+				# 						register_desc[addr].remove(Instruction.in1)
+				# if Instruction.in2 in symbol_table :
+				# 	if line_information[Instruction.line_num][Instruction.in2].next_use == -99:
+				# 		if not Instruction.out == Instruction.in2:
+				# 			address_desc[Instruction.in2] = []
+				# 			address_desc[Instruction.in2].append(Instruction.in2)
+				# 			for addr in register_desc :
+				# 				for vari in register_desc[addr] :
+				# 					if vari == Instruction.in2:
+				# 						register_desc[addr].remove(Instruction.in2)
 
 				return 
 
@@ -849,12 +880,37 @@ class block:
 		# 		print line[var].symbol, line[var].next_use, line[var].live , "K" ,
 		# 	print "" 
 
-		for Ins in self.listi:			
+		for Ins in self.listi:
+				self.gencode(Ins)			
+				# print "KATTAPPA"
+				# print address_desc
+				# print register_desc
+
+
+
+				# if Instruction.in1 in symbol_table :
+				# 	if line_information[Instruction.line_num][Instruction.in1].next_use == -99:
+				# 		if not Instruction.in1 == Instruction.out: 
+				# 			address_desc[Instruction.in1] = []
+				# 			address_desc[Instruction.in1].append(Instruction.in1)
+				# 			for addr in register_desc :
+				# 				for vari in register_desc[addr] :
+				# 					if vari == Instruction.in1:
+				# 						register_desc[addr].remove(Instruction.in1)
+				# if Instruction.in2 in symbol_table :
+				# 	if line_information[Instruction.line_num][Instruction.in2].next_use == -99:
+				# 		if not Instruction.out == Instruction.in2:
+				# 			address_desc[Instruction.in2] = []
+				# 			address_desc[Instruction.in2].append(Instruction.in2)
+				# 			for addr in register_desc :
+				# 				for vari in register_desc[addr] :
+				# 					if vari == Instruction.in2:
+				# 						register_desc[addr].remove(Instruction.in2)
+
 				
-				self.gencode(Ins)
 
 
-
+		############Moving everything back into the memory##################################
 		for variables in address_desc :
 			for lists in address_desc[variables]:
 				for reg in register_desc:
@@ -868,7 +924,7 @@ class block:
 
 		for reg in register_desc :
 			register_desc[reg] = []
-
+		#########################################
 		
 		#print address_desc
 		#print register_des
@@ -1361,7 +1417,9 @@ for line in lines:
 							
 							#symbol_table[x] =  entry(x,"DEAD", -99)			
 							address_desc[x] = [x]				
-							line_information[special_var][x] = entry(x,"DEAD",-99)
+							#line_information[special_var][x] = entry(x,"DEAD",-99)
+
+
 							
 
 			continue
@@ -1436,7 +1494,7 @@ for line in lines:
 					if not x.isdigit():
 						#symbol_table[x] = entry(x,"DEAD", -99)
 						address_desc[x] = [x]
-						line_information[special_var][x] = entry(x,"DEAD",-99)
+						#line_information[special_var][x] = entry(x,"DEAD",-99)
 
 
 if line_k == len(lines):

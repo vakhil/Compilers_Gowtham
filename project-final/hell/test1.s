@@ -1,14 +1,13 @@
-[1, 7, 8, 10, 11, 13, 14, 19, 20]
 .section .data
 	  a :
 		.int 0
-	  c :
+	  b :
 		.int 0
-	  t8 :
+	  temp :
 		.int 0
 	  t9 :
 		.int 0
-	  t6 :
+	  i :
 		.int 0
 	  t7 :
 		.int 0
@@ -18,7 +17,13 @@
 		.int 0
 	  t1 :
 		.int 0
-	 b:
+	  t11 :
+		.int 0
+	  t12 :
+		.int 0
+	  t13 :
+		.int 0
+	  n :
 		.int 0
 	 newline:
 		.ascii "\n" 
@@ -29,61 +34,51 @@
 
 
 _start:
-	movl $5, %ebx
-	movl  %ebx ,  t1
-	movl $10, %eax
-	movl  %eax ,  t3
-	movl $6, %edi
-	movl %ebx,   a
-	movl %eax,   c
-	movl %edi,   t5
-	movl (a) , %ebx
-	movl (t5) , %eax
-	cmpl %eax, %ebx
-	jne Block_2
+	movl $1, %ebx
+	movl $1, %eax
+	movl $3, %edi
+	movl $7, %ecx
+	movl $0, %esi
+	movl  %ebx , a
+	movl  %eax , b
+	movl  %esi , temp
+	movl  %esi , t9
+	movl  %edi , i
+	movl  %ecx , t7
+	movl  %edi , t5
+	movl  %eax , t3
+	movl  %ebx , t1
+	movl  %ecx , n
 Block_1 :
 
-	jmp Block_8
+	movl (i) , %ebx
+	movl (n) , %eax
+	cmpl %eax, %ebx
+	jle Block_3
 Block_2 :
 
-	movl $10, %ebx
-	movl %ebx,   t6
-	movl (a) , %ebx
-	movl (t6) , %eax
-	cmpl %eax, %ebx
-	jl Block_6
+	jmp Block_4
 Block_3 :
 
-	jmp Block_4
+	movl  a ,  %ebx
+	movl  b ,  %eax
+	movl  %ebx ,  %edi
+	add %eax ,  %edi
+	movl $1, %ecx
+	movl  i ,  %esi
+	add %ecx ,  %esi
+	movl %eax,   a
+	movl %edi,   b
+	movl %ebx,   temp
+	movl %esi,   i
+	movl %edi,   t11
+	movl %ecx,   t12
+	movl %esi,   t13
+	jmp Block_1
 Block_4 :
 
-	movl $8, %ebx
-	movl %ebx,   t7
-	movl (c) , %ebx
-	movl (t7) , %eax
-	cmpl %eax, %ebx
-	jg Block_6
-Block_5 :
-
-	jmp Block_7
-Block_6 :
-
-	movl a,  %eax
+	movl b,  %eax
 	call  print
-	movl $1, %ebx
-	movl  a ,  %eax
-	add %ebx ,  %eax
-	movl  %eax ,  t9
-	movl %eax,   a
-	jmp Block_2
-Block_7 :
-
-	movl c,  %eax
-	call  print
-Block_8 :
-
-Block_8 :
-
 	movl $1, %eax
 	movl $0, %ebx
 	int $0x80 

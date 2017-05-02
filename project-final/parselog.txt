@@ -9,655 +9,806 @@
    yacc.py: 443:Action : Shift and goto state 26
    yacc.py: 408:
    yacc.py: 409:State  : 26
-   yacc.py: 433:Stack  : Identifier EQUALS . LexToken(NUMBER,5,1,5)
+   yacc.py: 433:Stack  : Identifier EQUALS . LexToken(NUMBER,1,1,5)
    yacc.py: 443:Action : Shift and goto state 28
    yacc.py: 408:
    yacc.py: 409:State  : 28
    yacc.py: 433:Stack  : Identifier EQUALS NUMBER . LexToken(SemiColon,';',1,6)
-   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [5] and goto state 31
-   yacc.py: 503:Result : <dict @ 0x7fbf87117398> ({'code': [], 'type': 'NUMBER', 'value':  ...)
+   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [1] and goto state 31
+   yacc.py: 503:Result : <dict @ 0x7fa098529398> ({'code': [], 'type': 'NUMBER', 'value':  ...)
    yacc.py: 408:
    yacc.py: 409:State  : 31
    yacc.py: 433:Stack  : Identifier EQUALS LITERAL . LexToken(SemiColon,';',1,6)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fbf87117398>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf871175c8> ({'place': 't1', 'code': ['=,t1,5,'], 'ty ...)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fa098529398>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa0985295c8> ({'place': 't1', 'code': ['=,t1,1,'], 'ty ...)
    yacc.py: 408:
    yacc.py: 409:State  : 36
    yacc.py: 433:Stack  : Identifier EQUALS PRIMARY . LexToken(SemiColon,';',1,6)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf871175c8>] and goto state 47
-   yacc.py: 503:Result : <dict @ 0x7fbf871175c8> ({'place': 't1', 'code': ['=,t1,5,'], 'ty ...)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa0985295c8>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa0985295c8> ({'place': 't1', 'code': ['=,t1,1,'], 'ty ...)
    yacc.py: 408:
    yacc.py: 409:State  : 47
    yacc.py: 433:Stack  : Identifier EQUALS EXPR . LexToken(SemiColon,';',1,6)
-   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['a','=',<dict @ 0x7fbf871175c8>] and goto state 4
-   yacc.py: 503:Result : <dict @ 0x7fbf871174b0> ({})
+   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['a','=',<dict @ 0x7fa0985295c8>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x7fa0985294b0> ({})
    yacc.py: 408:
    yacc.py: 409:State  : 4
    yacc.py: 428:Defaulted state 4: Reduce using 52
    yacc.py: 433:Stack  : ASGN . LexToken(SemiColon,';',1,6)
    yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
    yacc.py: 408:
    yacc.py: 409:State  : 19
    yacc.py: 433:Stack  : ASGN empty . LexToken(SemiColon,';',1,6)
    yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 21
-   yacc.py: 503:Result : <dict @ 0x7fbf871175c8> ({'quad': [2]})
+   yacc.py: 503:Result : <dict @ 0x7fa0985295c8> ({'quad': [2]})
    yacc.py: 408:
    yacc.py: 409:State  : 21
    yacc.py: 433:Stack  : ASGN M_quad . LexToken(SemiColon,';',1,6)
    yacc.py: 443:Action : Shift and goto state 44
    yacc.py: 408:
    yacc.py: 409:State  : 44
-   yacc.py: 433:Stack  : ASGN M_quad SemiColon . LexToken(Identifier,'c',1,9)
+   yacc.py: 433:Stack  : ASGN M_quad SemiColon . LexToken(Identifier,'b',1,8)
    yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [{},{'quad': [2]},';'] and goto state 1
-   yacc.py: 503:Result : <dict @ 0x7fbf87117910> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 503:Result : <dict @ 0x7fa098529910> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
    yacc.py: 409:State  : 1
-   yacc.py: 433:Stack  : STMT . LexToken(Identifier,'c',1,9)
+   yacc.py: 433:Stack  : STMT . LexToken(Identifier,'b',1,8)
    yacc.py: 443:Action : Shift and goto state 10
    yacc.py: 408:
    yacc.py: 409:State  : 10
-   yacc.py: 433:Stack  : STMT Identifier . LexToken(EQUALS,'=',1,11)
+   yacc.py: 433:Stack  : STMT Identifier . LexToken(EQUALS,'=',1,10)
    yacc.py: 443:Action : Shift and goto state 26
    yacc.py: 408:
    yacc.py: 409:State  : 26
-   yacc.py: 433:Stack  : STMT Identifier EQUALS . LexToken(NUMBER,10,1,13)
+   yacc.py: 433:Stack  : STMT Identifier EQUALS . LexToken(NUMBER,1,1,12)
    yacc.py: 443:Action : Shift and goto state 28
    yacc.py: 408:
    yacc.py: 409:State  : 28
-   yacc.py: 433:Stack  : STMT Identifier EQUALS NUMBER . LexToken(SemiColon,';',1,15)
-   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [10] and goto state 31
-   yacc.py: 503:Result : <dict @ 0x7fbf87117280> ({'code': [], 'type': 'NUMBER', 'value':  ...)
+   yacc.py: 433:Stack  : STMT Identifier EQUALS NUMBER . LexToken(SemiColon,';',1,13)
+   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [1] and goto state 31
+   yacc.py: 503:Result : <dict @ 0x7fa098529280> ({'code': [], 'type': 'NUMBER', 'value':  ...)
    yacc.py: 408:
    yacc.py: 409:State  : 31
-   yacc.py: 433:Stack  : STMT Identifier EQUALS LITERAL . LexToken(SemiColon,';',1,15)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fbf87117280>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf870f56e0> ({'place': 't3', 'code': ['=,t3,10,'], 't ...)
+   yacc.py: 433:Stack  : STMT Identifier EQUALS LITERAL . LexToken(SemiColon,';',1,13)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fa098529280>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa0985086e0> ({'place': 't3', 'code': ['=,t3,1,'], 'ty ...)
    yacc.py: 408:
    yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT Identifier EQUALS PRIMARY . LexToken(SemiColon,';',1,15)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf870f56e0>] and goto state 47
-   yacc.py: 503:Result : <dict @ 0x7fbf870f56e0> ({'place': 't3', 'code': ['=,t3,10,'], 't ...)
+   yacc.py: 433:Stack  : STMT Identifier EQUALS PRIMARY . LexToken(SemiColon,';',1,13)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa0985086e0>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa0985086e0> ({'place': 't3', 'code': ['=,t3,1,'], 'ty ...)
    yacc.py: 408:
    yacc.py: 409:State  : 47
-   yacc.py: 433:Stack  : STMT Identifier EQUALS EXPR . LexToken(SemiColon,';',1,15)
-   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['c','=',<dict @ 0x7fbf870f56e0>] and goto state 4
-   yacc.py: 503:Result : <dict @ 0x7fbf871174b0> ({})
+   yacc.py: 433:Stack  : STMT Identifier EQUALS EXPR . LexToken(SemiColon,';',1,13)
+   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['b','=',<dict @ 0x7fa0985086e0>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x7fa0985294b0> ({})
    yacc.py: 408:
    yacc.py: 409:State  : 4
    yacc.py: 428:Defaulted state 4: Reduce using 52
-   yacc.py: 433:Stack  : STMT ASGN . LexToken(SemiColon,';',1,15)
+   yacc.py: 433:Stack  : STMT ASGN . LexToken(SemiColon,';',1,13)
    yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
    yacc.py: 408:
    yacc.py: 409:State  : 19
-   yacc.py: 433:Stack  : STMT ASGN empty . LexToken(SemiColon,';',1,15)
+   yacc.py: 433:Stack  : STMT ASGN empty . LexToken(SemiColon,';',1,13)
    yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 21
-   yacc.py: 503:Result : <dict @ 0x7fbf870f56e0> ({'quad': [4]})
+   yacc.py: 503:Result : <dict @ 0x7fa0985086e0> ({'quad': [4]})
    yacc.py: 408:
    yacc.py: 409:State  : 21
-   yacc.py: 433:Stack  : STMT ASGN M_quad . LexToken(SemiColon,';',1,15)
+   yacc.py: 433:Stack  : STMT ASGN M_quad . LexToken(SemiColon,';',1,13)
    yacc.py: 443:Action : Shift and goto state 44
    yacc.py: 408:
    yacc.py: 409:State  : 44
-   yacc.py: 433:Stack  : STMT ASGN M_quad SemiColon . LexToken(IF,'if',1,17)
+   yacc.py: 433:Stack  : STMT ASGN M_quad SemiColon . LexToken(Identifier,'i',1,15)
    yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [{},{'quad': [4]},';'] and goto state 1
-   yacc.py: 503:Result : <dict @ 0x7fbf87117e88> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 503:Result : <dict @ 0x7fa098529e88> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
    yacc.py: 409:State  : 1
-   yacc.py: 433:Stack  : STMT STMT . LexToken(IF,'if',1,17)
-   yacc.py: 443:Action : Shift and goto state 11
+   yacc.py: 433:Stack  : STMT STMT . LexToken(Identifier,'i',1,15)
+   yacc.py: 443:Action : Shift and goto state 10
    yacc.py: 408:
-   yacc.py: 409:State  : 11
-   yacc.py: 433:Stack  : STMT STMT IF . LexToken(Identifier,'a',1,20)
-   yacc.py: 443:Action : Shift and goto state 34
+   yacc.py: 409:State  : 10
+   yacc.py: 433:Stack  : STMT STMT Identifier . LexToken(EQUALS,'=',1,17)
+   yacc.py: 443:Action : Shift and goto state 26
    yacc.py: 408:
-   yacc.py: 409:State  : 34
-   yacc.py: 433:Stack  : STMT STMT IF Identifier . LexToken(Exclaim1,'!=',1,22)
-   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['a'] and goto state 27
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 27
-   yacc.py: 433:Stack  : STMT STMT IF VARNAME . LexToken(Exclaim1,'!=',1,22)
-   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fbf87117d70>] and goto state 33
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 33
-   yacc.py: 433:Stack  : STMT STMT IF VARIABLE . LexToken(Exclaim1,'!=',1,22)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fbf87117d70>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF PRIMARY . LexToken(Exclaim1,'!=',1,22)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf87117d70>] and goto state 30
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 30
-   yacc.py: 433:Stack  : STMT STMT IF EXPR . LexToken(Exclaim1,'!=',1,22)
-   yacc.py: 443:Action : Shift and goto state 56
-   yacc.py: 408:
-   yacc.py: 409:State  : 56
-   yacc.py: 433:Stack  : STMT STMT IF EXPR Exclaim1 . LexToken(NUMBER,6,1,25)
+   yacc.py: 409:State  : 26
+   yacc.py: 433:Stack  : STMT STMT Identifier EQUALS . LexToken(NUMBER,3,1,19)
    yacc.py: 443:Action : Shift and goto state 28
    yacc.py: 408:
    yacc.py: 409:State  : 28
-   yacc.py: 433:Stack  : STMT STMT IF EXPR Exclaim1 NUMBER . LexToken(THEN,'then',1,27)
-   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [6] and goto state 31
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f050> ({'code': [], 'type': 'NUMBER', 'value':  ...)
+   yacc.py: 433:Stack  : STMT STMT Identifier EQUALS NUMBER . LexToken(SemiColon,';',1,21)
+   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [3] and goto state 31
+   yacc.py: 503:Result : <dict @ 0x7fa098529d70> ({'code': [], 'type': 'NUMBER', 'value':  ...)
    yacc.py: 408:
    yacc.py: 409:State  : 31
-   yacc.py: 433:Stack  : STMT STMT IF EXPR Exclaim1 LITERAL . LexToken(THEN,'then',1,27)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fbf8711f050>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f398> ({'place': 't5', 'code': ['=,t5,6,'], 'ty ...)
+   yacc.py: 433:Stack  : STMT STMT Identifier EQUALS LITERAL . LexToken(SemiColon,';',1,21)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fa098529d70>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa0985296e0> ({'place': 't5', 'code': ['=,t5,3,'], 'ty ...)
    yacc.py: 408:
    yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF EXPR Exclaim1 PRIMARY . LexToken(THEN,'then',1,27)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf8711f398>] and goto state 76
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f398> ({'place': 't5', 'code': ['=,t5,6,'], 'ty ...)
+   yacc.py: 433:Stack  : STMT STMT Identifier EQUALS PRIMARY . LexToken(SemiColon,';',1,21)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa0985296e0>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa0985296e0> ({'place': 't5', 'code': ['=,t5,3,'], 'ty ...)
    yacc.py: 408:
-   yacc.py: 409:State  : 76
-   yacc.py: 433:Stack  : STMT STMT IF EXPR Exclaim1 EXPR . LexToken(THEN,'then',1,27)
-   yacc.py: 469:Action : Reduce rule [EXPR -> EXPR Exclaim1 EXPR] with [<dict @ 0x7fbf87117d70>,'!=',<dict @ 0x7fbf8711f398>] and goto state 30
-   yacc.py: 503:Result : <dict @ 0x7fbf87117c58> ({'truelist': [5], 'falseList': [6]})
+   yacc.py: 409:State  : 47
+   yacc.py: 433:Stack  : STMT STMT Identifier EQUALS EXPR . LexToken(SemiColon,';',1,21)
+   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['i','=',<dict @ 0x7fa0985296e0>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x7fa0985294b0> ({})
    yacc.py: 408:
-   yacc.py: 409:State  : 30
-   yacc.py: 433:Stack  : STMT STMT IF EXPR . LexToken(THEN,'then',1,27)
-   yacc.py: 443:Action : Shift and goto state 48
+   yacc.py: 409:State  : 4
+   yacc.py: 428:Defaulted state 4: Reduce using 52
+   yacc.py: 433:Stack  : STMT STMT ASGN . LexToken(SemiColon,';',1,21)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
    yacc.py: 408:
-   yacc.py: 409:State  : 48
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN . LexToken(WHILE,'while',1,34)
-   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 68
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
+   yacc.py: 409:State  : 19
+   yacc.py: 433:Stack  : STMT STMT ASGN empty . LexToken(SemiColon,';',1,21)
+   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 21
+   yacc.py: 503:Result : <dict @ 0x7fa0985296e0> ({'quad': [6]})
    yacc.py: 408:
-   yacc.py: 409:State  : 68
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN empty . LexToken(WHILE,'while',1,34)
-   yacc.py: 469:Action : Reduce rule [M_ifB -> empty] with [1] and goto state 67
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f4b0> ({'instr': [7]})
+   yacc.py: 409:State  : 21
+   yacc.py: 433:Stack  : STMT STMT ASGN M_quad . LexToken(SemiColon,';',1,21)
+   yacc.py: 443:Action : Shift and goto state 44
    yacc.py: 408:
-   yacc.py: 409:State  : 67
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB . LexToken(WHILE,'while',1,34)
+   yacc.py: 409:State  : 44
+   yacc.py: 433:Stack  : STMT STMT ASGN M_quad SemiColon . LexToken(Identifier,'n',1,23)
+   yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [{},{'quad': [6]},';'] and goto state 1
+   yacc.py: 503:Result : <dict @ 0x7fa0985314b0> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 1
+   yacc.py: 433:Stack  : STMT STMT STMT . LexToken(Identifier,'n',1,23)
+   yacc.py: 443:Action : Shift and goto state 10
+   yacc.py: 408:
+   yacc.py: 409:State  : 10
+   yacc.py: 433:Stack  : STMT STMT STMT Identifier . LexToken(EQUALS,'=',1,25)
+   yacc.py: 443:Action : Shift and goto state 26
+   yacc.py: 408:
+   yacc.py: 409:State  : 26
+   yacc.py: 433:Stack  : STMT STMT STMT Identifier EQUALS . LexToken(NUMBER,7,1,27)
+   yacc.py: 443:Action : Shift and goto state 28
+   yacc.py: 408:
+   yacc.py: 409:State  : 28
+   yacc.py: 433:Stack  : STMT STMT STMT Identifier EQUALS NUMBER . LexToken(SemiColon,';',1,28)
+   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [7] and goto state 31
+   yacc.py: 503:Result : <dict @ 0x7fa098531398> ({'code': [], 'type': 'NUMBER', 'value':  ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 31
+   yacc.py: 433:Stack  : STMT STMT STMT Identifier EQUALS LITERAL . LexToken(SemiColon,';',1,28)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fa098531398>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa0985295c8> ({'place': 't7', 'code': ['=,t7,7,'], 'ty ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 36
+   yacc.py: 433:Stack  : STMT STMT STMT Identifier EQUALS PRIMARY . LexToken(SemiColon,';',1,28)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa0985295c8>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa0985295c8> ({'place': 't7', 'code': ['=,t7,7,'], 'ty ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 47
+   yacc.py: 433:Stack  : STMT STMT STMT Identifier EQUALS EXPR . LexToken(SemiColon,';',1,28)
+   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['n','=',<dict @ 0x7fa0985295c8>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x7fa0985294b0> ({})
+   yacc.py: 408:
+   yacc.py: 409:State  : 4
+   yacc.py: 428:Defaulted state 4: Reduce using 52
+   yacc.py: 433:Stack  : STMT STMT STMT ASGN . LexToken(SemiColon,';',1,28)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 19
+   yacc.py: 433:Stack  : STMT STMT STMT ASGN empty . LexToken(SemiColon,';',1,28)
+   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 21
+   yacc.py: 503:Result : <dict @ 0x7fa0985295c8> ({'quad': [8]})
+   yacc.py: 408:
+   yacc.py: 409:State  : 21
+   yacc.py: 433:Stack  : STMT STMT STMT ASGN M_quad . LexToken(SemiColon,';',1,28)
+   yacc.py: 443:Action : Shift and goto state 44
+   yacc.py: 408:
+   yacc.py: 409:State  : 44
+   yacc.py: 433:Stack  : STMT STMT STMT ASGN M_quad SemiColon . LexToken(Identifier,'temp',1,30)
+   yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [{},{'quad': [8]},';'] and goto state 1
+   yacc.py: 503:Result : <dict @ 0x7fa098531a28> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 1
+   yacc.py: 433:Stack  : STMT STMT STMT STMT . LexToken(Identifier,'temp',1,30)
+   yacc.py: 443:Action : Shift and goto state 10
+   yacc.py: 408:
+   yacc.py: 409:State  : 10
+   yacc.py: 433:Stack  : STMT STMT STMT STMT Identifier . LexToken(EQUALS,'=',1,35)
+   yacc.py: 443:Action : Shift and goto state 26
+   yacc.py: 408:
+   yacc.py: 409:State  : 26
+   yacc.py: 433:Stack  : STMT STMT STMT STMT Identifier EQUALS . LexToken(NUMBER,0,1,37)
+   yacc.py: 443:Action : Shift and goto state 28
+   yacc.py: 408:
+   yacc.py: 409:State  : 28
+   yacc.py: 433:Stack  : STMT STMT STMT STMT Identifier EQUALS NUMBER . LexToken(SemiColon,';',1,38)
+   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [0] and goto state 31
+   yacc.py: 503:Result : <dict @ 0x7fa098531910> ({'code': [], 'type': 'NUMBER', 'value':  ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 31
+   yacc.py: 433:Stack  : STMT STMT STMT STMT Identifier EQUALS LITERAL . LexToken(SemiColon,';',1,38)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fa098531910>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa0985086e0> ({'place': 't9', 'code': ['=,t9,0,'], 'ty ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 36
+   yacc.py: 433:Stack  : STMT STMT STMT STMT Identifier EQUALS PRIMARY . LexToken(SemiColon,';',1,38)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa0985086e0>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa0985086e0> ({'place': 't9', 'code': ['=,t9,0,'], 'ty ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 47
+   yacc.py: 433:Stack  : STMT STMT STMT STMT Identifier EQUALS EXPR . LexToken(SemiColon,';',1,38)
+   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['temp','=',<dict @ 0x7fa0985086e0>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x7fa0985294b0> ({})
+   yacc.py: 408:
+   yacc.py: 409:State  : 4
+   yacc.py: 428:Defaulted state 4: Reduce using 52
+   yacc.py: 433:Stack  : STMT STMT STMT STMT ASGN . LexToken(SemiColon,';',1,38)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 19
+   yacc.py: 433:Stack  : STMT STMT STMT STMT ASGN empty . LexToken(SemiColon,';',1,38)
+   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 21
+   yacc.py: 503:Result : <dict @ 0x7fa0985086e0> ({'quad': [10]})
+   yacc.py: 408:
+   yacc.py: 409:State  : 21
+   yacc.py: 433:Stack  : STMT STMT STMT STMT ASGN M_quad . LexToken(SemiColon,';',1,38)
+   yacc.py: 443:Action : Shift and goto state 44
+   yacc.py: 408:
+   yacc.py: 409:State  : 44
+   yacc.py: 433:Stack  : STMT STMT STMT STMT ASGN M_quad SemiColon . LexToken(WHILE,'while',1,40)
+   yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [{},{'quad': [10]},';'] and goto state 1
+   yacc.py: 503:Result : <dict @ 0x7fa098532050> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 1
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT . LexToken(WHILE,'while',1,40)
    yacc.py: 443:Action : Shift and goto state 2
    yacc.py: 408:
    yacc.py: 409:State  : 2
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE . LexToken(LPAREN,'(',1,40)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE . LexToken(LPAREN,'(',1,46)
    yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
    yacc.py: 408:
    yacc.py: 409:State  : 19
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE empty . LexToken(LPAREN,'(',1,40)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE empty . LexToken(LPAREN,'(',1,46)
    yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 18
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f6e0> ({'quad': [7]})
+   yacc.py: 503:Result : <dict @ 0x7fa0985294b0> ({'quad': [10]})
    yacc.py: 408:
    yacc.py: 409:State  : 18
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad . LexToken(LPAREN,'(',1,40)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad . LexToken(LPAREN,'(',1,46)
    yacc.py: 443:Action : Shift and goto state 32
    yacc.py: 408:
    yacc.py: 409:State  : 32
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN . LexToken(Identifier,'a',1,42)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN . LexToken(Identifier,'i',1,48)
    yacc.py: 443:Action : Shift and goto state 34
    yacc.py: 408:
    yacc.py: 409:State  : 34
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN Identifier . LexToken(less_than,'<',1,44)
-   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['a'] and goto state 27
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN Identifier . LexToken(lessthan_equals,'<=',1,50)
+   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['i'] and goto state 27
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'place': 'i', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 27
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN VARNAME . LexToken(less_than,'<',1,44)
-   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fbf87117d70>] and goto state 33
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN VARNAME . LexToken(lessthan_equals,'<=',1,50)
+   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fa098532280>] and goto state 33
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'place': 'i', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 33
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN VARIABLE . LexToken(less_than,'<',1,44)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fbf87117d70>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN VARIABLE . LexToken(lessthan_equals,'<=',1,50)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fa098532280>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'place': 'i', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN PRIMARY . LexToken(less_than,'<',1,44)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf87117d70>] and goto state 62
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN PRIMARY . LexToken(lessthan_equals,'<=',1,50)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa098532280>] and goto state 62
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'place': 'i', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 62
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR . LexToken(less_than,'<',1,44)
-   yacc.py: 443:Action : Shift and goto state 50
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN EXPR . LexToken(lessthan_equals,'<=',1,50)
+   yacc.py: 443:Action : Shift and goto state 55
    yacc.py: 408:
-   yacc.py: 409:State  : 50
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR less_than . LexToken(NUMBER,10,1,46)
-   yacc.py: 443:Action : Shift and goto state 28
-   yacc.py: 408:
-   yacc.py: 409:State  : 28
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR less_than NUMBER . LexToken(OP_OR,'||',1,49)
-   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [10] and goto state 31
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f5c8> ({'code': [], 'type': 'NUMBER', 'value':  ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 31
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR less_than LITERAL . LexToken(OP_OR,'||',1,49)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fbf8711f5c8>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fe88> ({'place': 't6', 'code': ['=,t6,10,'], 't ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR less_than PRIMARY . LexToken(OP_OR,'||',1,49)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf8711fe88>] and goto state 70
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fe88> ({'place': 't6', 'code': ['=,t6,10,'], 't ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 70
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR less_than EXPR . LexToken(OP_OR,'||',1,49)
-   yacc.py: 469:Action : Reduce rule [EXPR -> EXPR less_than EXPR] with [<dict @ 0x7fbf87117d70>,'<',<dict @ 0x7fbf8711fe88>] and goto state 62
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fd70> ({'truelist': [8], 'falseList': [9]})
-   yacc.py: 408:
-   yacc.py: 409:State  : 62
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR . LexToken(OP_OR,'||',1,49)
-   yacc.py: 443:Action : Shift and goto state 60
-   yacc.py: 408:
-   yacc.py: 409:State  : 60
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR . LexToken(Identifier,'c',1,52)
-   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
-   yacc.py: 408:
-   yacc.py: 409:State  : 19
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR empty . LexToken(Identifier,'c',1,52)
-   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 80
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fe88> ({'quad': [10]})
-   yacc.py: 408:
-   yacc.py: 409:State  : 80
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad . LexToken(Identifier,'c',1,52)
+   yacc.py: 409:State  : 55
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN EXPR lessthan_equals . LexToken(Identifier,'n',1,53)
    yacc.py: 443:Action : Shift and goto state 34
    yacc.py: 408:
    yacc.py: 409:State  : 34
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad Identifier . LexToken(greater_than,'>',1,54)
-   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['c'] and goto state 27
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a168> ({'place': 'c', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN EXPR lessthan_equals Identifier . LexToken(RPAREN,')',1,55)
+   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['n'] and goto state 27
+   yacc.py: 503:Result : <dict @ 0x7fa098531d70> ({'place': 'n', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 27
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad VARNAME . LexToken(greater_than,'>',1,54)
-   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fbf86e9a168>] and goto state 33
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a168> ({'place': 'c', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN EXPR lessthan_equals VARNAME . LexToken(RPAREN,')',1,55)
+   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fa098531d70>] and goto state 33
+   yacc.py: 503:Result : <dict @ 0x7fa098531d70> ({'place': 'n', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 33
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad VARIABLE . LexToken(greater_than,'>',1,54)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fbf86e9a168>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a168> ({'place': 'c', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN EXPR lessthan_equals VARIABLE . LexToken(RPAREN,')',1,55)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fa098531d70>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa098531d70> ({'place': 'n', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad PRIMARY . LexToken(greater_than,'>',1,54)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf86e9a168>] and goto state 89
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a168> ({'place': 'c', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN EXPR lessthan_equals PRIMARY . LexToken(RPAREN,')',1,55)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa098531d70>] and goto state 75
+   yacc.py: 503:Result : <dict @ 0x7fa098531d70> ({'place': 'n', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
-   yacc.py: 409:State  : 89
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad EXPR . LexToken(greater_than,'>',1,54)
-   yacc.py: 443:Action : Shift and goto state 61
-   yacc.py: 408:
-   yacc.py: 409:State  : 61
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad EXPR greater_than . LexToken(NUMBER,8,1,56)
-   yacc.py: 443:Action : Shift and goto state 28
-   yacc.py: 408:
-   yacc.py: 409:State  : 28
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad EXPR greater_than NUMBER . LexToken(RPAREN,')',1,58)
-   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [8] and goto state 31
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f5c8> ({'code': [], 'type': 'NUMBER', 'value':  ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 31
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad EXPR greater_than LITERAL . LexToken(RPAREN,')',1,58)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fbf8711f5c8>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a5c8> ({'place': 't7', 'code': ['=,t7,8,'], 'ty ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad EXPR greater_than PRIMARY . LexToken(RPAREN,')',1,58)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf86e9a5c8>] and goto state 81
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a5c8> ({'place': 't7', 'code': ['=,t7,8,'], 'ty ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 81
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad EXPR greater_than EXPR . LexToken(RPAREN,')',1,58)
-   yacc.py: 469:Action : Reduce rule [EXPR -> EXPR greater_than EXPR] with [<dict @ 0x7fbf86e9a168>,'>',<dict @ 0x7fbf86e9a5c8>] and goto state 89
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a4b0> ({'truelist': [11], 'falseList': [12]})
-   yacc.py: 408:
-   yacc.py: 409:State  : 89
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR OP_OR M_quad EXPR . LexToken(RPAREN,')',1,58)
-   yacc.py: 469:Action : Reduce rule [EXPR -> EXPR OP_OR M_quad EXPR] with [<dict @ 0x7fbf8711fd70>,'||',{'quad': [10]},<dict @ 0x7fbf86e9a4b0>] and goto state 62
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'truelist': [8, 11], 'falseList': [12]})
+   yacc.py: 409:State  : 75
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN EXPR lessthan_equals EXPR . LexToken(RPAREN,')',1,55)
+   yacc.py: 469:Action : Reduce rule [EXPR -> EXPR lessthan_equals EXPR] with [<dict @ 0x7fa098532280>,'<=',<dict @ 0x7fa098531d70>] and goto state 62
+   yacc.py: 503:Result : <dict @ 0x7fa098532398> ({'truelist': [10], 'falseList': [11]})
    yacc.py: 408:
    yacc.py: 409:State  : 62
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR . LexToken(RPAREN,')',1,58)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN EXPR . LexToken(RPAREN,')',1,55)
    yacc.py: 443:Action : Shift and goto state 82
    yacc.py: 408:
    yacc.py: 409:State  : 82
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad LPAREN EXPR RPAREN . LexToken(DO,'do',1,60)
-   yacc.py: 469:Action : Reduce rule [EXPR -> LPAREN EXPR RPAREN] with ['(',<dict @ 0x7fbf87117d70>,')'] and goto state 41
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({'truelist': [8, 11], 'falseList': [12]})
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad LPAREN EXPR RPAREN . LexToken(DO,'do',1,57)
+   yacc.py: 469:Action : Reduce rule [EXPR -> LPAREN EXPR RPAREN] with ['(',<dict @ 0x7fa098532398>,')'] and goto state 41
+   yacc.py: 503:Result : <dict @ 0x7fa098532398> ({'truelist': [10], 'falseList': [11]})
    yacc.py: 408:
    yacc.py: 409:State  : 41
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR . LexToken(DO,'do',1,60)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR . LexToken(DO,'do',1,57)
    yacc.py: 443:Action : Shift and goto state 65
    yacc.py: 408:
    yacc.py: 409:State  : 65
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO . LexToken(PUTS,'puts',1,67)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO . LexToken(Identifier,'temp',1,61)
    yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
    yacc.py: 408:
    yacc.py: 409:State  : 19
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO empty . LexToken(PUTS,'puts',1,67)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO empty . LexToken(Identifier,'temp',1,61)
    yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 84
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f5c8> ({'quad': [13]})
+   yacc.py: 503:Result : <dict @ 0x7fa0985326e0> ({'quad': [12]})
    yacc.py: 408:
    yacc.py: 409:State  : 84
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad . LexToken(PUTS,'puts',1,67)
-   yacc.py: 443:Action : Shift and goto state 13
-   yacc.py: 408:
-   yacc.py: 409:State  : 13
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PUTS . LexToken(Identifier,'a',1,72)
-   yacc.py: 443:Action : Shift and goto state 34
-   yacc.py: 408:
-   yacc.py: 409:State  : 34
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PUTS Identifier . LexToken(SemiColon,';',1,73)
-   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['a'] and goto state 27
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fd70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 27
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PUTS VARNAME . LexToken(SemiColon,';',1,73)
-   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fbf8711fd70>] and goto state 33
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fd70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 33
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PUTS VARIABLE . LexToken(SemiColon,';',1,73)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fbf8711fd70>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fd70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PUTS PRIMARY . LexToken(SemiColon,';',1,73)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf8711fd70>] and goto state 37
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fd70> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 37
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PUTS EXPR . LexToken(SemiColon,';',1,73)
-   yacc.py: 469:Action : Reduce rule [LISTS -> EXPR] with [<dict @ 0x7fbf8711fd70>] and goto state 39
-   yacc.py: 503:Result : <list @ 0x7fbf870f7e18> ([{'type': 'NUMBER', 'place': 'a'}])
-   yacc.py: 408:
-   yacc.py: 409:State  : 39
-   yacc.py: 428:Defaulted state 39: Reduce using 48
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PUTS LISTS . LexToken(SemiColon,';',1,73)
-   yacc.py: 469:Action : Reduce rule [PRINTS -> PUTS LISTS] with ['puts',<list @ 0x7fbf870f7e18>] and goto state 6
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f910> ({})
-   yacc.py: 408:
-   yacc.py: 409:State  : 6
-   yacc.py: 428:Defaulted state 6: Reduce using 52
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PRINTS . LexToken(SemiColon,';',1,73)
-   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
-   yacc.py: 408:
-   yacc.py: 409:State  : 19
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PRINTS empty . LexToken(SemiColon,';',1,73)
-   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 22
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a280> ({'quad': [14]})
-   yacc.py: 408:
-   yacc.py: 409:State  : 22
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PRINTS M_quad . LexToken(SemiColon,';',1,73)
-   yacc.py: 443:Action : Shift and goto state 45
-   yacc.py: 408:
-   yacc.py: 409:State  : 45
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad PRINTS M_quad SemiColon . LexToken(Identifier,'a',1,79)
-   yacc.py: 469:Action : Reduce rule [STMT -> PRINTS M_quad SemiColon] with [{},{'quad': [14]},';'] and goto state 1
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fd70> ({'loopEndList': [], 'loopBeginList': []})
-   yacc.py: 408:
-   yacc.py: 409:State  : 1
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT . LexToken(Identifier,'a',1,79)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad . LexToken(Identifier,'temp',1,61)
    yacc.py: 443:Action : Shift and goto state 10
    yacc.py: 408:
    yacc.py: 409:State  : 10
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier . LexToken(EQUALS,'=',1,81)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad Identifier . LexToken(EQUALS,'=',1,66)
    yacc.py: 443:Action : Shift and goto state 26
    yacc.py: 408:
    yacc.py: 409:State  : 26
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS . LexToken(Identifier,'a',1,83)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad Identifier EQUALS . LexToken(Identifier,'a',1,68)
    yacc.py: 443:Action : Shift and goto state 34
    yacc.py: 408:
    yacc.py: 409:State  : 34
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS Identifier . LexToken(Add,'+',1,85)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad Identifier EQUALS Identifier . LexToken(SemiColon,';',1,69)
    yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['a'] and goto state 27
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a398> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 27
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS VARNAME . LexToken(Add,'+',1,85)
-   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fbf86e9a398>] and goto state 33
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a398> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad Identifier EQUALS VARNAME . LexToken(SemiColon,';',1,69)
+   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fa098532280>] and goto state 33
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 33
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS VARIABLE . LexToken(Add,'+',1,85)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fbf86e9a398>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a398> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad Identifier EQUALS VARIABLE . LexToken(SemiColon,';',1,69)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fa098532280>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS PRIMARY . LexToken(Add,'+',1,85)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf86e9a398>] and goto state 47
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a398> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad Identifier EQUALS PRIMARY . LexToken(SemiColon,';',1,69)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa098532280>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'place': 'a', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 47
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS EXPR . LexToken(Add,'+',1,85)
-   yacc.py: 443:Action : Shift and goto state 49
-   yacc.py: 408:
-   yacc.py: 409:State  : 49
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS EXPR Add . LexToken(NUMBER,1,1,87)
-   yacc.py: 443:Action : Shift and goto state 28
-   yacc.py: 408:
-   yacc.py: 409:State  : 28
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS EXPR Add NUMBER . LexToken(SemiColon,';',1,88)
-   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [1] and goto state 31
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a5c8> ({'code': [], 'type': 'NUMBER', 'value':  ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 31
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS EXPR Add LITERAL . LexToken(SemiColon,';',1,88)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fbf86e9a5c8>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9aa28> ({'place': 't8', 'code': ['=,t8,1,'], 'ty ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS EXPR Add PRIMARY . LexToken(SemiColon,';',1,88)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf86e9aa28>] and goto state 69
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9aa28> ({'place': 't8', 'code': ['=,t8,1,'], 'ty ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 69
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS EXPR Add EXPR . LexToken(SemiColon,';',1,88)
-   yacc.py: 469:Action : Reduce rule [EXPR -> EXPR Add EXPR] with [<dict @ 0x7fbf86e9a398>,'+',<dict @ 0x7fbf86e9aa28>] and goto state 47
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fb40> ({'type': 'NUMBER', 'code': ['+,t9,a,t8'] ...)
-   yacc.py: 408:
-   yacc.py: 409:State  : 47
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS EXPR . LexToken(SemiColon,';',1,88)
-   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['a','=',<dict @ 0x7fbf8711fb40>] and goto state 4
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a910> ({'code': ['+,t9,a,t8', '=,a,t9,']})
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad Identifier EQUALS EXPR . LexToken(SemiColon,';',1,69)
+   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['temp','=',<dict @ 0x7fa098532280>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x7fa0985296e0> ({'code': ['=,temp,a,']})
    yacc.py: 408:
    yacc.py: 409:State  : 4
    yacc.py: 428:Defaulted state 4: Reduce using 52
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT ASGN . LexToken(SemiColon,';',1,88)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad ASGN . LexToken(SemiColon,';',1,69)
    yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
    yacc.py: 408:
    yacc.py: 409:State  : 19
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT ASGN empty . LexToken(SemiColon,';',1,88)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad ASGN empty . LexToken(SemiColon,';',1,69)
    yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 21
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fb40> ({'quad': [17]})
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'quad': [13]})
    yacc.py: 408:
    yacc.py: 409:State  : 21
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT ASGN M_quad . LexToken(SemiColon,';',1,88)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad ASGN M_quad . LexToken(SemiColon,';',1,69)
    yacc.py: 443:Action : Shift and goto state 44
    yacc.py: 408:
    yacc.py: 409:State  : 44
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT ASGN M_quad SemiColon . LexToken(END,'end',1,92)
-   yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [<dict @ 0x7fbf86e9a910>,{'quad': [17]},';'] and goto state 1
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a398> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad ASGN M_quad SemiColon . LexToken(Identifier,'a',1,72)
+   yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [<dict @ 0x7fa0985296e0>,{'quad': [13]},';'] and goto state 1
+   yacc.py: 503:Result : <dict @ 0x7fa098532b40> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
    yacc.py: 409:State  : 1
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT STMT . LexToken(END,'end',1,92)
-   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 15
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT . LexToken(Identifier,'a',1,72)
+   yacc.py: 443:Action : Shift and goto state 10
    yacc.py: 408:
-   yacc.py: 409:State  : 15
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT STMT empty . LexToken(END,'end',1,92)
-   yacc.py: 469:Action : Reduce rule [M_state -> empty] with [1] and goto state 17
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fc58> ({})
+   yacc.py: 409:State  : 10
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT Identifier . LexToken(EQUALS,'=',1,74)
+   yacc.py: 443:Action : Shift and goto state 26
    yacc.py: 408:
-   yacc.py: 409:State  : 17
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT STMT M_state . LexToken(END,'end',1,92)
-   yacc.py: 469:Action : Reduce rule [compstmt -> STMT M_state] with [<dict @ 0x7fbf86e9a398>,{}] and goto state 16
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a7f8> ({'loopEndList': [], 'loopBeginList': []})
-   yacc.py: 408:
-   yacc.py: 409:State  : 16
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad STMT compstmt . LexToken(END,'end',1,92)
-   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fbf8711fd70>,<dict @ 0x7fbf86e9a7f8>] and goto state 90
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a6e0> ({'loopEndList': [], 'loopBeginList': []})
-   yacc.py: 408:
-   yacc.py: 409:State  : 90
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad compstmt . LexToken(END,'end',1,92)
-   yacc.py: 443:Action : Shift and goto state 94
-   yacc.py: 408:
-   yacc.py: 409:State  : 94
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB WHILE M_quad EXPR DO M_quad compstmt END . LexToken(PUTS,'puts',1,96)
-   yacc.py: 469:Action : Reduce rule [whiles -> WHILE M_quad EXPR DO M_quad compstmt END] with ['while',{'quad': [7]},<dict @ 0x7fbf87117d70>,'do',{'quad': [13]},<dict @ 0x7fbf86e9a6e0>,'end'] and goto state 8
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a4b0> ({'nextList': [12]})
-   yacc.py: 408:
-   yacc.py: 409:State  : 8
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB whiles . LexToken(PUTS,'puts',1,96)
-   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
-   yacc.py: 408:
-   yacc.py: 409:State  : 19
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB whiles empty . LexToken(PUTS,'puts',1,96)
-   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 24
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f168> ({'quad': [18]})
-   yacc.py: 408:
-   yacc.py: 409:State  : 24
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB whiles M_quad . LexToken(PUTS,'puts',1,96)
-   yacc.py: 469:Action : Reduce rule [STMT -> whiles M_quad] with [<dict @ 0x7fbf86e9a4b0>,{'quad': [18]}] and goto state 1
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fd70> ({'loopEndList': [], 'loopBeginList': []})
-   yacc.py: 408:
-   yacc.py: 409:State  : 1
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT . LexToken(PUTS,'puts',1,96)
-   yacc.py: 443:Action : Shift and goto state 13
-   yacc.py: 408:
-   yacc.py: 409:State  : 13
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PUTS . LexToken(Identifier,'c',1,101)
+   yacc.py: 409:State  : 26
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS . LexToken(Identifier,'b',1,76)
    yacc.py: 443:Action : Shift and goto state 34
    yacc.py: 408:
    yacc.py: 409:State  : 34
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PUTS Identifier . LexToken(SemiColon,';',1,102)
-   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['c'] and goto state 27
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9ac58> ({'place': 'c', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS Identifier . LexToken(SemiColon,';',1,77)
+   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['b'] and goto state 27
+   yacc.py: 503:Result : <dict @ 0x7fa098532a28> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 27
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PUTS VARNAME . LexToken(SemiColon,';',1,102)
-   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fbf86e9ac58>] and goto state 33
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9ac58> ({'place': 'c', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS VARNAME . LexToken(SemiColon,';',1,77)
+   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fa098532a28>] and goto state 33
+   yacc.py: 503:Result : <dict @ 0x7fa098532a28> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 33
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PUTS VARIABLE . LexToken(SemiColon,';',1,102)
-   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fbf86e9ac58>] and goto state 36
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9ac58> ({'place': 'c', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS VARIABLE . LexToken(SemiColon,';',1,77)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fa098532a28>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa098532a28> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 36
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PUTS PRIMARY . LexToken(SemiColon,';',1,102)
-   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fbf86e9ac58>] and goto state 37
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9ac58> ({'place': 'c', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS PRIMARY . LexToken(SemiColon,';',1,77)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa098532a28>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa098532a28> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 47
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT Identifier EQUALS EXPR . LexToken(SemiColon,';',1,77)
+   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['a','=',<dict @ 0x7fa098532a28>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x7fa098532d70> ({'code': ['=,a,b,']})
+   yacc.py: 408:
+   yacc.py: 409:State  : 4
+   yacc.py: 428:Defaulted state 4: Reduce using 52
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT ASGN . LexToken(SemiColon,';',1,77)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 19
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT ASGN empty . LexToken(SemiColon,';',1,77)
+   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 21
+   yacc.py: 503:Result : <dict @ 0x7fa098532a28> ({'quad': [14]})
+   yacc.py: 408:
+   yacc.py: 409:State  : 21
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT ASGN M_quad . LexToken(SemiColon,';',1,77)
+   yacc.py: 443:Action : Shift and goto state 44
+   yacc.py: 408:
+   yacc.py: 409:State  : 44
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT ASGN M_quad SemiColon . LexToken(Identifier,'b',1,80)
+   yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [<dict @ 0x7fa098532d70>,{'quad': [14]},';'] and goto state 1
+   yacc.py: 503:Result : <dict @ 0x7fa0985086e0> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 1
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT . LexToken(Identifier,'b',1,80)
+   yacc.py: 443:Action : Shift and goto state 10
+   yacc.py: 408:
+   yacc.py: 409:State  : 10
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier . LexToken(EQUALS,'=',1,82)
+   yacc.py: 443:Action : Shift and goto state 26
+   yacc.py: 408:
+   yacc.py: 409:State  : 26
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS . LexToken(Identifier,'temp',1,84)
+   yacc.py: 443:Action : Shift and goto state 34
+   yacc.py: 408:
+   yacc.py: 409:State  : 34
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS Identifier . LexToken(Add,'+',1,89)
+   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['temp'] and goto state 27
+   yacc.py: 503:Result : <dict @ 0x7fa0985296e0> ({'place': 'temp', 'code': [], 'type': 'N ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 27
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS VARNAME . LexToken(Add,'+',1,89)
+   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fa0985296e0>] and goto state 33
+   yacc.py: 503:Result : <dict @ 0x7fa0985296e0> ({'place': 'temp', 'code': [], 'type': 'N ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 33
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS VARIABLE . LexToken(Add,'+',1,89)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fa0985296e0>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa0985296e0> ({'place': 'temp', 'code': [], 'type': 'N ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 36
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS PRIMARY . LexToken(Add,'+',1,89)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa0985296e0>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa0985296e0> ({'place': 'temp', 'code': [], 'type': 'N ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 47
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS EXPR . LexToken(Add,'+',1,89)
+   yacc.py: 443:Action : Shift and goto state 49
+   yacc.py: 408:
+   yacc.py: 409:State  : 49
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS EXPR Add . LexToken(Identifier,'b',1,91)
+   yacc.py: 443:Action : Shift and goto state 34
+   yacc.py: 408:
+   yacc.py: 409:State  : 34
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS EXPR Add Identifier . LexToken(SemiColon,';',1,92)
+   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['b'] and goto state 27
+   yacc.py: 503:Result : <dict @ 0x7fa0985325c8> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 27
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS EXPR Add VARNAME . LexToken(SemiColon,';',1,92)
+   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fa0985325c8>] and goto state 33
+   yacc.py: 503:Result : <dict @ 0x7fa0985325c8> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 33
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS EXPR Add VARIABLE . LexToken(SemiColon,';',1,92)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fa0985325c8>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa0985325c8> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 36
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS EXPR Add PRIMARY . LexToken(SemiColon,';',1,92)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa0985325c8>] and goto state 69
+   yacc.py: 503:Result : <dict @ 0x7fa0985325c8> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 69
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS EXPR Add EXPR . LexToken(SemiColon,';',1,92)
+   yacc.py: 469:Action : Reduce rule [EXPR -> EXPR Add EXPR] with [<dict @ 0x7fa0985296e0>,'+',<dict @ 0x7fa0985325c8>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa098532d70> ({'type': 'NUMBER', 'code': ['+,t11,temp, ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 47
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT Identifier EQUALS EXPR . LexToken(SemiColon,';',1,92)
+   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['b','=',<dict @ 0x7fa098532d70>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad280> ({'code': ['+,t11,temp,b', '=,b,t11,']})
+   yacc.py: 408:
+   yacc.py: 409:State  : 4
+   yacc.py: 428:Defaulted state 4: Reduce using 52
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT ASGN . LexToken(SemiColon,';',1,92)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 19
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT ASGN empty . LexToken(SemiColon,';',1,92)
+   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 21
+   yacc.py: 503:Result : <dict @ 0x7fa098532d70> ({'quad': [16]})
+   yacc.py: 408:
+   yacc.py: 409:State  : 21
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT ASGN M_quad . LexToken(SemiColon,';',1,92)
+   yacc.py: 443:Action : Shift and goto state 44
+   yacc.py: 408:
+   yacc.py: 409:State  : 44
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT ASGN M_quad SemiColon . LexToken(Identifier,'i',1,95)
+   yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [<dict @ 0x7fa0982ad280>,{'quad': [16]},';'] and goto state 1
+   yacc.py: 503:Result : <dict @ 0x7fa0985296e0> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 1
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT . LexToken(Identifier,'i',1,95)
+   yacc.py: 443:Action : Shift and goto state 10
+   yacc.py: 408:
+   yacc.py: 409:State  : 10
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier . LexToken(EQUALS,'=',1,97)
+   yacc.py: 443:Action : Shift and goto state 26
+   yacc.py: 408:
+   yacc.py: 409:State  : 26
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS . LexToken(Identifier,'i',1,99)
+   yacc.py: 443:Action : Shift and goto state 34
+   yacc.py: 408:
+   yacc.py: 409:State  : 34
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS Identifier . LexToken(Add,'+',1,101)
+   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['i'] and goto state 27
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad4b0> ({'place': 'i', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 27
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS VARNAME . LexToken(Add,'+',1,101)
+   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fa0982ad4b0>] and goto state 33
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad4b0> ({'place': 'i', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 33
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS VARIABLE . LexToken(Add,'+',1,101)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fa0982ad4b0>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad4b0> ({'place': 'i', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 36
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS PRIMARY . LexToken(Add,'+',1,101)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa0982ad4b0>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad4b0> ({'place': 'i', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 47
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS EXPR . LexToken(Add,'+',1,101)
+   yacc.py: 443:Action : Shift and goto state 49
+   yacc.py: 408:
+   yacc.py: 409:State  : 49
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS EXPR Add . LexToken(NUMBER,1,1,103)
+   yacc.py: 443:Action : Shift and goto state 28
+   yacc.py: 408:
+   yacc.py: 409:State  : 28
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS EXPR Add NUMBER . LexToken(SemiColon,';',1,104)
+   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [1] and goto state 31
+   yacc.py: 503:Result : <dict @ 0x7fa098532a28> ({'code': [], 'type': 'NUMBER', 'value':  ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 31
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS EXPR Add LITERAL . LexToken(SemiColon,';',1,104)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x7fa098532a28>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad6e0> ({'place': 't12', 'code': ['=,t12,1,'], ' ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 36
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS EXPR Add PRIMARY . LexToken(SemiColon,';',1,104)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa0982ad6e0>] and goto state 69
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad6e0> ({'place': 't12', 'code': ['=,t12,1,'], ' ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 69
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS EXPR Add EXPR . LexToken(SemiColon,';',1,104)
+   yacc.py: 469:Action : Reduce rule [EXPR -> EXPR Add EXPR] with [<dict @ 0x7fa0982ad4b0>,'+',<dict @ 0x7fa0982ad6e0>] and goto state 47
+   yacc.py: 503:Result : <dict @ 0x7fa098531d70> ({'type': 'NUMBER', 'code': ['+,t13,i,t12 ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 47
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT Identifier EQUALS EXPR . LexToken(SemiColon,';',1,104)
+   yacc.py: 469:Action : Reduce rule [ASGN -> Identifier EQUALS EXPR] with ['i','=',<dict @ 0x7fa098531d70>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad5c8> ({'code': ['+,t13,i,t12', '=,i,t13,']})
+   yacc.py: 408:
+   yacc.py: 409:State  : 4
+   yacc.py: 428:Defaulted state 4: Reduce using 52
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT ASGN . LexToken(SemiColon,';',1,104)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 19
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT ASGN empty . LexToken(SemiColon,';',1,104)
+   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 21
+   yacc.py: 503:Result : <dict @ 0x7fa098531d70> ({'quad': [19]})
+   yacc.py: 408:
+   yacc.py: 409:State  : 21
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT ASGN M_quad . LexToken(SemiColon,';',1,104)
+   yacc.py: 443:Action : Shift and goto state 44
+   yacc.py: 408:
+   yacc.py: 409:State  : 44
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT ASGN M_quad SemiColon . LexToken(END,'end',1,106)
+   yacc.py: 469:Action : Reduce rule [STMT -> ASGN M_quad SemiColon] with [<dict @ 0x7fa0982ad5c8>,{'quad': [19]},';'] and goto state 1
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad4b0> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 1
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT STMT . LexToken(END,'end',1,106)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 15
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 15
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT STMT empty . LexToken(END,'end',1,106)
+   yacc.py: 469:Action : Reduce rule [M_state -> empty] with [1] and goto state 17
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad050> ({})
+   yacc.py: 408:
+   yacc.py: 409:State  : 17
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT STMT M_state . LexToken(END,'end',1,106)
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT M_state] with [<dict @ 0x7fa0982ad4b0>,{}] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x7fa0985325c8> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 16
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT STMT compstmt . LexToken(END,'end',1,106)
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fa0985296e0>,<dict @ 0x7fa0985325c8>] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x7fa0982ad168> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 16
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT STMT compstmt . LexToken(END,'end',1,106)
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fa0985086e0>,<dict @ 0x7fa0982ad168>] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x7fa098532280> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 16
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad STMT compstmt . LexToken(END,'end',1,106)
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fa098532b40>,<dict @ 0x7fa098532280>] and goto state 90
+   yacc.py: 503:Result : <dict @ 0x7fa098532c58> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 90
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad compstmt . LexToken(END,'end',1,106)
+   yacc.py: 443:Action : Shift and goto state 94
+   yacc.py: 408:
+   yacc.py: 409:State  : 94
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT WHILE M_quad EXPR DO M_quad compstmt END . LexToken(PUTS,'puts',1,110)
+   yacc.py: 469:Action : Reduce rule [whiles -> WHILE M_quad EXPR DO M_quad compstmt END] with ['while',{'quad': [10]},<dict @ 0x7fa098532398>,'do',{'quad': [12]},<dict @ 0x7fa098532c58>,'end'] and goto state 8
+   yacc.py: 503:Result : <dict @ 0x7fa0985324b0> ({'nextList': [11]})
+   yacc.py: 408:
+   yacc.py: 409:State  : 8
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT whiles . LexToken(PUTS,'puts',1,110)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 19
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT whiles empty . LexToken(PUTS,'puts',1,110)
+   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 24
+   yacc.py: 503:Result : <dict @ 0x7fa098531e88> ({'quad': [20]})
+   yacc.py: 408:
+   yacc.py: 409:State  : 24
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT whiles M_quad . LexToken(PUTS,'puts',1,110)
+   yacc.py: 469:Action : Reduce rule [STMT -> whiles M_quad] with [<dict @ 0x7fa0985324b0>,{'quad': [20]}] and goto state 1
+   yacc.py: 503:Result : <dict @ 0x7fa098532b40> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 1
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT . LexToken(PUTS,'puts',1,110)
+   yacc.py: 443:Action : Shift and goto state 13
+   yacc.py: 408:
+   yacc.py: 409:State  : 13
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PUTS . LexToken(Identifier,'b',1,115)
+   yacc.py: 443:Action : Shift and goto state 34
+   yacc.py: 408:
+   yacc.py: 409:State  : 34
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PUTS Identifier . LexToken(SemiColon,';',1,116)
+   yacc.py: 469:Action : Reduce rule [VARNAME -> Identifier] with ['b'] and goto state 27
+   yacc.py: 503:Result : <dict @ 0x7fa098532e88> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 27
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PUTS VARNAME . LexToken(SemiColon,';',1,116)
+   yacc.py: 469:Action : Reduce rule [VARIABLE -> VARNAME] with [<dict @ 0x7fa098532e88>] and goto state 33
+   yacc.py: 503:Result : <dict @ 0x7fa098532e88> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 33
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PUTS VARIABLE . LexToken(SemiColon,';',1,116)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> VARIABLE] with [<dict @ 0x7fa098532e88>] and goto state 36
+   yacc.py: 503:Result : <dict @ 0x7fa098532e88> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 36
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PUTS PRIMARY . LexToken(SemiColon,';',1,116)
+   yacc.py: 469:Action : Reduce rule [EXPR -> PRIMARY] with [<dict @ 0x7fa098532e88>] and goto state 37
+   yacc.py: 503:Result : <dict @ 0x7fa098532e88> ({'place': 'b', 'code': [], 'type': 'NUMB ...)
    yacc.py: 408:
    yacc.py: 409:State  : 37
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PUTS EXPR . LexToken(SemiColon,';',1,102)
-   yacc.py: 469:Action : Reduce rule [LISTS -> EXPR] with [<dict @ 0x7fbf86e9ac58>] and goto state 39
-   yacc.py: 503:Result : <list @ 0x7fbf870f9638> ([{'type': 'NUMBER', 'place': 'c'}])
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PUTS EXPR . LexToken(SemiColon,';',1,116)
+   yacc.py: 469:Action : Reduce rule [LISTS -> EXPR] with [<dict @ 0x7fa098532e88>] and goto state 39
+   yacc.py: 503:Result : <list @ 0x7fa09850cef0> ([{'type': 'NUMBER', 'place': 'b'}])
    yacc.py: 408:
    yacc.py: 409:State  : 39
    yacc.py: 428:Defaulted state 39: Reduce using 48
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PUTS LISTS . LexToken(SemiColon,';',1,102)
-   yacc.py: 469:Action : Reduce rule [PRINTS -> PUTS LISTS] with ['puts',<list @ 0x7fbf870f9638>] and goto state 6
-   yacc.py: 503:Result : <dict @ 0x7fbf87117d70> ({})
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PUTS LISTS . LexToken(SemiColon,';',1,116)
+   yacc.py: 469:Action : Reduce rule [PRINTS -> PUTS LISTS] with ['puts',<list @ 0x7fa09850cef0>] and goto state 6
+   yacc.py: 503:Result : <dict @ 0x7fa098532398> ({})
    yacc.py: 408:
    yacc.py: 409:State  : 6
    yacc.py: 428:Defaulted state 6: Reduce using 52
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PRINTS . LexToken(SemiColon,';',1,102)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PRINTS . LexToken(SemiColon,';',1,116)
    yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
    yacc.py: 408:
    yacc.py: 409:State  : 19
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PRINTS empty . LexToken(SemiColon,';',1,102)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PRINTS empty . LexToken(SemiColon,';',1,116)
    yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 22
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f6e0> ({'quad': [19]})
+   yacc.py: 503:Result : <dict @ 0x7fa0985294b0> ({'quad': [21]})
    yacc.py: 408:
    yacc.py: 409:State  : 22
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PRINTS M_quad . LexToken(SemiColon,';',1,102)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PRINTS M_quad . LexToken(SemiColon,';',1,116)
    yacc.py: 443:Action : Shift and goto state 45
    yacc.py: 408:
    yacc.py: 409:State  : 45
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT PRINTS M_quad SemiColon . LexToken(END,'end',1,104)
-   yacc.py: 469:Action : Reduce rule [STMT -> PRINTS M_quad SemiColon] with [{},{'quad': [19]},';'] and goto state 1
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9ac58> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT PRINTS M_quad SemiColon . $end
+   yacc.py: 469:Action : Reduce rule [STMT -> PRINTS M_quad SemiColon] with [{},{'quad': [21]},';'] and goto state 1
+   yacc.py: 503:Result : <dict @ 0x7fa098532e88> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
    yacc.py: 409:State  : 1
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT STMT . LexToken(END,'end',1,104)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT STMT . $end
    yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 15
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
+   yacc.py: 542:Result : <int @ 0x168e158> (1)
    yacc.py: 408:
    yacc.py: 409:State  : 15
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT STMT empty . LexToken(END,'end',1,104)
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT STMT empty . $end
    yacc.py: 469:Action : Reduce rule [M_state -> empty] with [1] and goto state 17
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a050> ({})
+   yacc.py: 503:Result : <dict @ 0x7fa098532910> ({})
    yacc.py: 408:
    yacc.py: 409:State  : 17
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT STMT M_state . LexToken(END,'end',1,104)
-   yacc.py: 469:Action : Reduce rule [compstmt -> STMT M_state] with [<dict @ 0x7fbf86e9ac58>,{}] and goto state 16
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a168> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT STMT M_state . $end
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT M_state] with [<dict @ 0x7fa098532e88>,{}] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x7fa0985327f8> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
    yacc.py: 409:State  : 16
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB STMT compstmt . LexToken(END,'end',1,104)
-   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fbf8711fd70>,<dict @ 0x7fbf86e9a168>] and goto state 87
-   yacc.py: 503:Result : <dict @ 0x7fbf8711f168> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT STMT compstmt . $end
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fa098532b40>,<dict @ 0x7fa0985327f8>] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x7fa098531e88> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
-   yacc.py: 409:State  : 87
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB compstmt . LexToken(END,'end',1,104)
-   yacc.py: 443:Action : Shift and goto state 92
+   yacc.py: 409:State  : 16
+   yacc.py: 433:Stack  : STMT STMT STMT STMT STMT compstmt . $end
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fa098532050>,<dict @ 0x7fa098531e88>] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x7fa098532d70> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
-   yacc.py: 409:State  : 92
-   yacc.py: 433:Stack  : STMT STMT IF EXPR THEN M_ifB compstmt END . $end
-   yacc.py: 469:Action : Reduce rule [ifThen -> IF EXPR THEN M_ifB compstmt END] with ['if',<dict @ 0x7fbf87117c58>,'then',{'instr': [7]},<dict @ 0x7fbf8711f168>,'end'] and goto state 14
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a280> ({'loopEndList': [], 'loopBeginList': [], ...)
+   yacc.py: 409:State  : 16
+   yacc.py: 433:Stack  : STMT STMT STMT STMT compstmt . $end
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fa098531a28>,<dict @ 0x7fa098532d70>] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x7fa098531b40> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
-   yacc.py: 409:State  : 14
-   yacc.py: 433:Stack  : STMT STMT ifThen . $end
-   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 19
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
-   yacc.py: 408:
-   yacc.py: 409:State  : 19
-   yacc.py: 433:Stack  : STMT STMT ifThen empty . $end
-   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 40
-   yacc.py: 503:Result : <dict @ 0x7fbf870f56e0> ({'quad': [19]})
-   yacc.py: 408:
-   yacc.py: 409:State  : 40
-   yacc.py: 433:Stack  : STMT STMT ifThen M_quad . $end
-   yacc.py: 469:Action : Reduce rule [STMT -> ifThen M_quad] with [<dict @ 0x7fbf86e9a280>,{'quad': [19]}] and goto state 1
-   yacc.py: 503:Result : <dict @ 0x7fbf8711fd70> ({'loopEndList': [], 'loopBeginList': []})
-   yacc.py: 408:
-   yacc.py: 409:State  : 1
-   yacc.py: 433:Stack  : STMT STMT STMT . $end
-   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 15
-   yacc.py: 542:Result : <int @ 0x1ee1158> (1)
-   yacc.py: 408:
-   yacc.py: 409:State  : 15
-   yacc.py: 433:Stack  : STMT STMT STMT empty . $end
-   yacc.py: 469:Action : Reduce rule [M_state -> empty] with [1] and goto state 17
-   yacc.py: 503:Result : <dict @ 0x7fbf871175c8> ({})
-   yacc.py: 408:
-   yacc.py: 409:State  : 17
-   yacc.py: 433:Stack  : STMT STMT STMT M_state . $end
-   yacc.py: 469:Action : Reduce rule [compstmt -> STMT M_state] with [<dict @ 0x7fbf8711fd70>,{}] and goto state 16
-   yacc.py: 503:Result : <dict @ 0x7fbf87117c58> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 409:State  : 16
+   yacc.py: 433:Stack  : STMT STMT STMT compstmt . $end
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fa0985314b0>,<dict @ 0x7fa098531b40>] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x7fa0985315c8> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
    yacc.py: 409:State  : 16
    yacc.py: 433:Stack  : STMT STMT compstmt . $end
-   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fbf87117e88>,<dict @ 0x7fbf87117c58>] and goto state 16
-   yacc.py: 503:Result : <dict @ 0x7fbf86e9a4b0> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fa098529e88>,<dict @ 0x7fa0985315c8>] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x7fa098531050> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
    yacc.py: 409:State  : 16
    yacc.py: 433:Stack  : STMT compstmt . $end
-   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fbf87117910>,<dict @ 0x7fbf86e9a4b0>] and goto state 12
-   yacc.py: 503:Result : <dict @ 0x7fbf87117a28> ({'loopEndList': [], 'loopBeginList': []})
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT compstmt] with [<dict @ 0x7fa098529910>,<dict @ 0x7fa098531050>] and goto state 12
+   yacc.py: 503:Result : <dict @ 0x7fa098529a28> ({'loopEndList': [], 'loopBeginList': []})
    yacc.py: 408:
    yacc.py: 409:State  : 12
    yacc.py: 428:Defaulted state 12: Reduce using 1
    yacc.py: 433:Stack  : compstmt . $end
-   yacc.py: 469:Action : Reduce rule [start -> compstmt] with [<dict @ 0x7fbf87117a28>] and goto state 5
+   yacc.py: 469:Action : Reduce rule [start -> compstmt] with [<dict @ 0x7fa098529a28>] and goto state 5
    yacc.py: 503:Result : <NoneType @ 0x8fe4d0> (None)
    yacc.py: 408:
    yacc.py: 409:State  : 5

@@ -544,16 +544,19 @@ parser = yacc.yacc(debug=True, debuglog=log)
 #     print "%5d: \t%s" %(i, codePoint)
 
 #print lines
-s = ''' a = 5;
-
-c = 10;
-if a != 6 then
-  while ( a < 10 || c > 8 ) do
-    puts a;
-    a = a + 1;
-  end
-puts c;
+s = ''' a = 1;
+b = 1;
+i = 3 ;
+n = 7;
+temp = 0;
+while ( i <= n ) do
+	temp = a;
+	a = b;
+	b = temp + b;
+	i = i + 1;
 end
+puts b;
+
 
 
 
