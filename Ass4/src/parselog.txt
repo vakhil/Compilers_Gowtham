@@ -1,0 +1,147 @@
+   yacc.py: 360:PLY: PARSE DEBUG START
+   yacc.py: 408:
+   yacc.py: 409:State  : 0
+   yacc.py: 433:Stack  : . LexToken(DEF,'def',1,1)
+   yacc.py: 443:Action : Shift and goto state 5
+   yacc.py: 408:
+   yacc.py: 409:State  : 5
+   yacc.py: 433:Stack  : DEF . LexToken(Identifier,'akhil',1,5)
+   yacc.py: 443:Action : Shift and goto state 20
+   yacc.py: 408:
+   yacc.py: 409:State  : 20
+   yacc.py: 433:Stack  : DEF Identifier . LexToken(LPAREN,'(',1,10)
+   yacc.py: 443:Action : Shift and goto state 38
+   yacc.py: 408:
+   yacc.py: 409:State  : 38
+   yacc.py: 433:Stack  : DEF Identifier LPAREN . LexToken(RPAREN,')',1,11)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 56
+   yacc.py: 542:Result : <int @ 0x2306298> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 56
+   yacc.py: 428:Defaulted state 56: Reduce using 17
+   yacc.py: 433:Stack  : DEF Identifier LPAREN empty . LexToken(RPAREN,')',1,11)
+   yacc.py: 469:Action : Reduce rule [ARGLIST -> empty] with [1] and goto state 54
+   yacc.py: 503:Result : <list @ 0x2442908> ([])
+   yacc.py: 408:
+   yacc.py: 409:State  : 54
+   yacc.py: 433:Stack  : DEF Identifier LPAREN ARGLIST . LexToken(RPAREN,')',1,11)
+   yacc.py: 443:Action : Shift and goto state 59
+   yacc.py: 408:
+   yacc.py: 409:State  : 59
+   yacc.py: 428:Defaulted state 59: Reduce using 15
+   yacc.py: 433:Stack  : DEF Identifier LPAREN ARGLIST RPAREN . None
+   yacc.py: 469:Action : Reduce rule [ARGDECL -> LPAREN ARGLIST RPAREN] with ['(',[],')'] and goto state 37
+   yacc.py: 503:Result : <list @ 0x2442908> ([])
+   yacc.py: 408:
+   yacc.py: 409:State  : 37
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL . LexToken(DO,'do',1,13)
+   yacc.py: 443:Action : Shift and goto state 53
+   yacc.py: 408:
+   yacc.py: 409:State  : 53
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO . LexToken(Identifier,'i',1,18)
+   yacc.py: 443:Action : Shift and goto state 12
+   yacc.py: 408:
+   yacc.py: 409:State  : 12
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO Identifier . LexToken(EQUALS,'=',1,20)
+   yacc.py: 443:Action : Shift and goto state 21
+   yacc.py: 408:
+   yacc.py: 409:State  : 21
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO Identifier EQUALS . LexToken(NUMBER,2,1,22)
+   yacc.py: 443:Action : Shift and goto state 3
+   yacc.py: 408:
+   yacc.py: 409:State  : 3
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO Identifier EQUALS NUMBER . LexToken(SemiColon,';',1,23)
+   yacc.py: 469:Action : Reduce rule [LITERAL -> NUMBER] with [2] and goto state 10
+   yacc.py: 503:Result : <dict @ 0x24537b8> ({'code': [], 'type': 'NUMBER', 'value':  ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 10
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO Identifier EQUALS LITERAL . LexToken(SemiColon,';',1,23)
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> LITERAL] with [<dict @ 0x24537b8>] and goto state 15
+   yacc.py: 503:Result : <dict @ 0x2bff8c8> ({'place': 't1', 'code': ['=,t1,2,'], 'ty ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 15
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO Identifier EQUALS PRIMARY . LexToken(SemiColon,';',1,23)
+   yacc.py: 469:Action : Reduce rule [ARG -> PRIMARY] with [<dict @ 0x2bff8c8>] and goto state 39
+   yacc.py: 503:Result : <dict @ 0x2bff8c8> ({'place': 't1', 'code': ['=,t1,2,'], 'ty ...)
+   yacc.py: 408:
+   yacc.py: 409:State  : 39
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO Identifier EQUALS ARG . LexToken(SemiColon,';',1,23)
+   yacc.py: 469:Action : Reduce rule [ARG -> Identifier EQUALS ARG] with ['i','=',<dict @ 0x2bff8c8>] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x2bffae8> ({'code': ['=,t1,2,', '=,i,t1,']})
+   yacc.py: 408:
+   yacc.py: 409:State  : 16
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO ARG . LexToken(SemiColon,';',1,23)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 22
+   yacc.py: 542:Result : <int @ 0x2306298> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 22
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO ARG empty . LexToken(SemiColon,';',1,23)
+   yacc.py: 469:Action : Reduce rule [M_quad -> empty] with [1] and goto state 30
+   yacc.py: 503:Result : <dict @ 0x2c07378> ({'instr': [2]})
+   yacc.py: 408:
+   yacc.py: 409:State  : 30
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO ARG M_quad . LexToken(SemiColon,';',1,23)
+   yacc.py: 443:Action : Shift and goto state 47
+   yacc.py: 408:
+   yacc.py: 409:State  : 47
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO ARG M_quad SemiColon . LexToken(END,'end',1,27)
+   yacc.py: 469:Action : Reduce rule [EXPR -> ARG M_quad SemiColon] with [<dict @ 0x2bffae8>,{'instr': [2]},';'] and goto state 7
+   yacc.py: 503:Result : <dict @ 0x2c07598> ({'nextlist': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 7
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO EXPR . LexToken(END,'end',1,27)
+   yacc.py: 469:Action : Reduce rule [STMT -> EXPR] with [<dict @ 0x2c07598>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x2c07598> ({'nextlist': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 4
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO STMT . LexToken(END,'end',1,27)
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 18
+   yacc.py: 542:Result : <int @ 0x2306298> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 18
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO STMT empty . LexToken(END,'end',1,27)
+   yacc.py: 469:Action : Reduce rule [complex1 -> empty] with [1] and goto state 19
+   yacc.py: 503:Result : <NoneType @ 0x5e966c58> (None)
+   yacc.py: 408:
+   yacc.py: 409:State  : 19
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO STMT complex1 . LexToken(END,'end',1,27)
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT complex1] with [<dict @ 0x2c07598>,None] and goto state 58
+   yacc.py: 503:Result : <dict @ 0x2c07268> ({'nextlist': []})
+   yacc.py: 408:
+   yacc.py: 409:State  : 58
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO compstmt . LexToken(END,'end',1,27)
+   yacc.py: 443:Action : Shift and goto state 65
+   yacc.py: 408:
+   yacc.py: 409:State  : 65
+   yacc.py: 433:Stack  : DEF Identifier ARGDECL DO compstmt END . $end
+   yacc.py: 469:Action : Reduce rule [PRIMARY -> DEF Identifier ARGDECL DO compstmt END] with ['def','akhil',[],'do',<dict @ 0x2c07268>,'end'] and goto state 15
+   yacc.py: 503:Result : <dict @ 0x2c076a8> ({'type': 'FUNCTION'})
+   yacc.py: 408:
+   yacc.py: 409:State  : 15
+   yacc.py: 433:Stack  : PRIMARY . $end
+   yacc.py: 469:Action : Reduce rule [ARG -> PRIMARY] with [<dict @ 0x2c076a8>] and goto state 16
+   yacc.py: 503:Result : <dict @ 0x2c076a8> ({'type': 'FUNCTION'})
+   yacc.py: 408:
+   yacc.py: 409:State  : 16
+   yacc.py: 433:Stack  : ARG . $end
+   yacc.py: 469:Action : Reduce rule [EXPR -> ARG] with [<dict @ 0x2c076a8>] and goto state 7
+   yacc.py: 503:Result : <dict @ 0x2c076a8> ({'type': 'FUNCTION'})
+   yacc.py: 408:
+   yacc.py: 409:State  : 7
+   yacc.py: 433:Stack  : EXPR . $end
+   yacc.py: 469:Action : Reduce rule [STMT -> EXPR] with [<dict @ 0x2c076a8>] and goto state 4
+   yacc.py: 503:Result : <dict @ 0x2c076a8> ({'type': 'FUNCTION'})
+   yacc.py: 408:
+   yacc.py: 409:State  : 4
+   yacc.py: 433:Stack  : STMT . $end
+   yacc.py: 472:Action : Reduce rule [empty -> <empty>] with [] and goto state 18
+   yacc.py: 542:Result : <int @ 0x2306298> (1)
+   yacc.py: 408:
+   yacc.py: 409:State  : 18
+   yacc.py: 433:Stack  : STMT empty . $end
+   yacc.py: 469:Action : Reduce rule [complex1 -> empty] with [1] and goto state 19
+   yacc.py: 503:Result : <NoneType @ 0x5e966c58> (None)
+   yacc.py: 408:
+   yacc.py: 409:State  : 19
+   yacc.py: 433:Stack  : STMT complex1 . $end
+   yacc.py: 469:Action : Reduce rule [compstmt -> STMT complex1] with [<dict @ 0x2c076a8>,None] and goto state 13

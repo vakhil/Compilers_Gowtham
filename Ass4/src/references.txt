@@ -1,0 +1,1 @@
+namestring --- label_string method

@@ -1,0 +1,22 @@
+a = 5;
+c = 0;
+if a >= 2 then 
+
+if a <= 7 then 
+  if a >= 4 then 
+    puts a;
+    end
+end
+end
+
+a = 5;
+c = 0;
+if a >= 2 then 
+a = 10;
+
+if c <= 2 then 
+ a = 2;
+ c = 1;
+end
+end
+puts a, c;

@@ -1,0 +1,6 @@
+Problems in new file are :
+
+1) In risc.txt, after assigning some of the statments like a1 = 0 , why are no new variables assigned to register?
+2) IN test1, some problems near division. mov %eax, b and then after 2 lines mov b, %eax. OPtimise print too -- use print also in next_information.
+3)in test2 , also same division problem as above.
+4) IN test4, it is not compiling due to some errors . Plz refer once

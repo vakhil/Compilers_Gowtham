@@ -1,0 +1,1462 @@
+#!/usr/bin/python
+
+import sys
+
+register_desc = { '%eax':[], '%ebx' : [] ,'%ecx' : [] ,'%edi' : [] ,'%esi' : []  }
+##register_desc_global = { 'R10' : [] , 'R11' : [] ,'R12' : [] ,'R13' : [] ,'R14' : [] ,'R15' : [] ,'R16' : [] ,'R17' : []  }
+address_desc = {}
+leaders = []
+list_func = []
+
+class exit :
+	var = 0
+	def __init__(self,var):
+		self.var = 0
+
+
+line_information=[{}]
+class entry:
+	symbol=""
+	live = ""
+	next_use = -99
+
+	def __init__(self,symbol,live,next_use):
+		self.symbol = symbol
+		self.live = live
+		self.next_use = next_use
+
+	def set(self,symbol,live,next_use):
+		self.symbol = symbol
+		self.live = live
+		self.next_use = next_use
+
+class block:
+	number = 0
+	listi = []         #List of all Instructions in a block
+	leader = 0;         #Leader of the block
+	end = 99; 			#End of the block
+	label = 0
+	def __init__(self,Instruction,line_num):       #Constructor of the new class 
+		self.listi = []
+		self.listi.append(Instruction)
+		self.leader = line_num
+
+
+
+	def heuristic(self, line_num):
+		maximum = -99
+		register = ""
+		variable = ""
+		maximum2 = 0
+		for reg in register_desc:
+			for variables in register_desc[reg]:
+				if line_information[line_num][variables].next_use == maximum:
+					register = reg
+					variable = variables
+				else:
+					maximum1 = 	line_information[line_num][variables].next_use
+					if  maximum1 >= maximum2: 
+						maximum2 = maximum1
+						register = reg 
+						variable = variables
+
+		for vari in register_desc[register] :
+			print "\tmovl %s"%(register),", %s"%(vari)
+			address_desc[vari].append(vari)
+			address_desc[vari].remove(register)
+
+
+		register_desc[register] = [ ]
+		address_desc[variable] = []
+		address_desc[variable].append(variable)
+		
+
+		#address_desc[variable].remove(register)
+
+		return register
+
+
+	def getreg(self,Instruction, line_num):
+		## Moving to memory given X occupies heuristic
+		#if Instruction.Instr_type == "Assignment" | :
+			#if not Instruction.operator == '=':
+				register = ""
+				
+				# if Instruction.in1 == 'D.1730' :
+				# 			print line_information[Instruction.line_num][Instruction.in1].next_use
+
+
+				for reg in register_desc : 
+					if Instruction.in1 in register_desc[reg] and len(register_desc[reg]) == 1 and line_information[Instruction.line_num][Instruction.in1].next_use == -99:
+						# print "I am here........................................."
+						register = reg
+
+						
+
+
+						#print "REGISTER ", reg
+						for vari in register_desc[register] :
+							if not vari == Instruction.out:
+								# print "movl %s ,"%register,"%s"%vari, "SEX"
+								#address_desc[vari].remove(register)
+								if vari not in address_desc[vari]:
+									address_desc[vari].append(vari)
+
+						
+						#register_desc[register]=Instruction.out
+						
+						return register
+
+				for reg in register_desc :
+
+					if len(register_desc[reg]) == 0:
+						return reg
+				
+				# print "I am here........................................................"	
+				# if Instruction.line_num == 44:
+				# 	print "I am here........................................................"	
+				# 	print line_information[Instruction.line_num][Instruction.out].symbol,line_information[Instruction.line_num][Instruction.out].live,line_information[Instruction.line_num][Instruction.out].next_use, "Fuck"	
+				if not line_information[Instruction.line_num][Instruction.out].next_use == -99 :
+					return self.heuristic(line_num)
+
+				else:
+					# print "I am here............................."
+					return address_desc[Instruction.out][0]
+
+
+	def gencode(self, Instruction):
+		#print "KOOL", Instruction.operator 
+
+		if Instruction.operator == 'scanf' :
+
+			for var in register_desc['%ebx']:
+				print "\tmovl %ebx, %s"%(var)
+				address_desc[var].remove('%ebx')
+
+			print '\tpush $integer1'	 
+			print '\tpush $scanfFormat'
+			print '\tcall scanf'
+			print '\tpopl %eax'
+			print '\tpopl %eax'
+			print '\tmovl (integer1), %ebx'
+			print '\tmovl %ebx, ','%s'%(Instruction.out)
+
+
+
+		if Instruction.Instr_type == 'jump' :
+
+			target = Instruction.target
+			#print type(target)
+			required = leaders.index(int(target))
+			
+			for variables in address_desc :
+					lists = address_desc[variables]
+					for items in lists:
+							if items in register_desc:								
+									print "\tmovl %s,  "%(items), "%s"%(variables)
+
+			
+			for variables in address_desc :
+				address_desc[variables] = []
+				address_desc[variables].append(variables)
+
+			for reg in register_desc :
+				register_desc[reg] = []
+
+
+			if Instruction.operator == 'goto' :		
+				if Instruction.speci == ''	:
+					print "\tjmp ","Block_",required
+
+				else : 
+					print "\tjmp ","%s"%(Instruction.speci)
+
+			if Instruction.operator == 'IFgoto' :
+
+				final_add =Instruction.in1
+				final_add2 = Instruction.in2
+
+				if Instruction.in1 in address_desc :
+
+
+					r1 = address_desc[Instruction.in1] 
+					
+					for addr in r1:
+						if addr in register_desc:
+							final_add = addr
+
+							break
+
+					##This is for 
+					
+				else:
+					final_add = "$%s"%(Instruction.in1)
+				if Instruction.in2 in address_desc:
+				
+					r2 = address_desc[Instruction.in2] 
+					
+					for addr in r2:
+						if addr in register_desc:
+							final_add2 = addr
+							break
+
+					##This is for 
+					
+				else :
+						final_add2= "$%s"%(Instruction.in2)
+
+
+
+				if (not final_add2 in register_desc) and (not final_add in register_desc ):
+					
+					
+					for vari in register_desc['%ebx']:
+						print "\tmovl %ebx,", "  %s"%(vari)
+						address_desc[vari].remove('%ebx')
+					
+					if final_add in address_desc:
+
+						print "\tmovl (%s)"%(final_add), ", %ebx"
+						final_add = '%ebx'
+					if final_add2 in address_desc:
+						
+						print "\tmovl (%s)"%(final_add2), ", %ebx"
+						final_add2 = '%ebx'
+
+				if final_add in register_desc:
+					print "\tcmpl %s, %s" %(final_add2,final_add)
+					
+				else:
+					print "\tcmpl %s, %s" %(final_add,final_add2)
+
+				if Instruction.speci == '' :				
+					print "\t%s Block_%s" %(Instruction.out, required)
+				else : 
+					print "\t%s " %(Instruction.out),"%s"%(Instruction.speci)
+				'''
+				if Instruction.out == 'je' :
+
+					print "\tcmp ",Instruction.in1,", ",Instruction.in2
+					print "\tje ","Block_",required
+				if Instruction.out == 'jne' :
+					print "\tcmp ",Instruction.in1,", ",Instruction.in2
+					print "\tje ","Block_",required
+				if Instruction.out == 'jg' :
+					print "\tcmp ",Instruction.in1,", ",Instruction.in2
+					print "\tjg ","Block_",required
+				if Instruction.out == 'jge' :
+					print "\tcmp ",Instruction.in1,", ",Instruction.in2
+					print "\tjge ","Block_",required
+				if Instruction.out == 'jl' :
+					print "\tcmp ",Instruction.in1,", ",Instruction.in2
+					print "\tjl ","Block_",required
+				if Instruction.out == 'jle' :
+					print "\tcmp ",Instruction.in1,", ",Instruction.in2
+					print "\tjle ","Block_",required	'''
+
+			return
+
+
+		if Instruction.operator == 'call' :
+			#print address_desc
+			#print register_desc
+
+			for variables in address_desc :
+				#print (address_desc['a'])
+				lists = address_desc[variables]
+				#print lists
+				for addr in lists:
+
+					if addr in register_desc:
+						
+				
+
+						print "\tmovl ",addr,", %s"%(variables)
+
+		
+			for variables in address_desc :
+				address_desc[variables] = []
+				address_desc[variables].append(variables)
+
+			for reg in register_desc :
+				register_desc[reg] = []
+
+			if not Instruction.in2 == '':
+				for vari in register_desc['%eax']:
+					print "\tmovl %eax ,","%s"%(vari)
+					address_desc[vari].remove('%eax')
+
+				addr = Instruction.in2
+				if Instruction.in2 in address_desc:
+					lists = address_desc[Instruction.in2]
+					
+					for foxs in lists :
+						if foxs in register_desc:
+							addr = foxs
+							break
+				
+				
+
+
+				print "\tmovl %s, "%(addr), "%eax"
+				
+				print "\tcall ", Instruction.in1
+			else:
+				print "\tcall ", Instruction.in1
+
+			return
+			
+		if Instruction.operator == '*':
+			L = self.getreg(Instruction,Instruction.line_num)
+			print register_desc
+			print "\tmovl %s, %s"%(Instruction.in1,L)
+			print "\tmovl %s, %s"%(L,Instruction.out)
+			return
+
+		if Instruction.operator == '&':
+			L = self.getreg(Instruction,Instruction.line_num)
+			print register_desc
+			print "\tmovl $(%s), %s"%(Instruction.in1,L)
+			print "\tmovl %s, %s"%(L,Instruction.out)
+			return
+
+		if Instruction.operator == 'exit' :
+			for reg in register_desc:
+				lists = register_desc[reg]
+				for vari in lists:
+
+					print "\tmovl %s"%(reg),", ",vari
+
+					address_desc[vari] = []
+					address_desc[vari].append(vari)
+
+			for reg in register_desc:
+				register_desc[reg] = []
+
+			print "\tmovl $1, %eax"
+			print "\tmovl $0, %ebx"
+			print "\tint $0x80 "	
+			
+			return
+		
+		if (Instruction.operator)[0:3] == 'ret' :
+			
+			#Uploading all local variables to memory because some variables might have loaded into registers but not 
+			for reg in register_desc:
+				lists = register_desc[reg]
+				for vari in lists:
+
+					print "\tmovl %s"%(reg),", ",vari
+
+					address_desc[vari] = []
+					address_desc[vari].append(vari)
+
+			for reg in register_desc:
+				register_desc[reg] = []
+
+
+			
+				
+					
+
+
+			if Instruction.in1 == '-999':
+				print "\tret"
+			else:
+				final_add = ""
+				if Instruction.in1 in address_desc:
+					r1 = address_desc[Instruction.in1] 
+					
+					for addr in r1:
+						if addr in register_desc:
+							final_add = addr
+							break
+
+					##This is for 
+					if final_add == "":
+
+						final_add = "("+Instruction.in1+")"
+
+				else :
+						final_add= "$%s"%(Instruction.in1)
+
+				for alls in register_desc:
+					register_desc[alls] = []
+				for vari in address_desc:
+					address_desc[vari] = []
+					address_desc[vari] = [vari]
+
+				print "\tmovl %s, "%(final_add),"%eax"
+
+				print "\tret"
+
+
+			return
+
+
+		if Instruction.Instr_type == "Assignment" :
+
+			if Instruction.operator == '=':
+			
+				
+
+
+				if Instruction.in1 in list_func:
+					print "call %s"%(Instruction.in1)
+					print "\tmovl %eax, ","%s"%(Instruction.out)
+					for reg in register_desc:
+						if Instruction.out in register_desc[reg]:
+							register_desc[reg].remove(Instruction.out)
+					address_desc[Instruction.out] = []
+					address_desc[Instruction.out].append(Instruction.out)
+					return
+
+
+
+
+				if Instruction.in1 in symbol_table :
+					L = ""
+					Y_dup = ""
+					lists = address_desc[Instruction.in1]
+					
+					for loc in lists:
+						if loc in register_desc:
+							Y_dup = loc
+							address_desc[Instruction.out] = []
+							address_desc[Instruction.out] = loc
+							register_desc[loc].append(Instruction.out)
+						if  line_information[Instruction.line_num][Instruction.in1].next_use == -99 :
+							list1 = address_desc[Instruction.in1]
+							for addr in list1:
+								if addr in register_desc :
+									register_desc[addr].remove(Instruction.in1)
+
+
+							print "\tmovl ",loc,", ",Instruction.in1
+							address_desc[Instruction.in1] = []
+							address_desc[Instruction.in1].append(Instruction.in1)
+
+
+					if  Y_dup == "":	
+						L = self.getreg(Instruction,Instruction.line_num)
+
+
+						print "\tmovl ",Instruction.in1,", ",L 
+						address_desc[Instruction.in1] = L
+						register_desc[Instruction.in1] = []
+						register_desc[L].append(Instruction.out)
+						register_desc[L].append(Instruction.in1)
+
+
+						'''
+						for  vari in register_desc['%ebx'] :
+							print "\tmovl %ebx , ","%s"%(vari)
+							address_desc[vari] = []
+							address_desc[vari].append(vari)
+						Y_dup = '%ebx'
+						address_desc[Instruction.in1] = []
+						address_desc[Instruction.in1].append('%ebx')
+
+
+						print "\tmovl %s, %s"%(Instruction.in1, Y_dup)
+						
+						register_desc[Y_dup].append(Instruction.in1)
+					else :
+						address_desc[Instruction.out] = []
+						address_desc[Instruction.out] = [Y_dup]
+						register_desc[Y_dup] = Instruction.out
+						if line_information[Instruction.line_num][Instruction.in1].next_use == '-99' :
+							address_desc[Instruction.in1] = []
+
+					print "\tmovl %s, %s"%(Y_dup, Instruction.out) '''
+
+				else :
+
+					L = self.getreg(Instruction,Instruction.line_num)
+					print "\tmovl $%s, %s"%(Instruction.in1,L)
+
+					if L in register_desc: 
+						address_desc[Instruction.out] = []
+						address_desc[Instruction.out].append(L)
+						register_desc[L].append(Instruction.out)
+
+					else:
+						address_desc[Instruction.out] = []
+						address_desc[Instruction.out].append(L)		
+
+
+
+
+					
+
+					
+
+			if Instruction.operator == '/' or Instruction.operator == '%':
+				
+					
+
+				for item in register_desc['%eax'] :
+					print "\tmovl %eax, ", "%s" %item
+					address_desc[item].remove('%eax')
+
+				for vari in address_desc :
+					if '%eax' in address_desc[vari]:
+						address_desc[vari].remove('%eax')
+				
+
+
+				print "\tmovl $0, %edx"
+
+				final_add1 = ""
+
+				#register_desc['%eax'] = []
+				
+				if Instruction.in1 in address_desc:
+					r1 = address_desc[Instruction.in1] 
+					
+					for addr in r1:
+						if addr in register_desc:
+							final_add1 = addr
+							break
+
+					##This is for 
+					if final_add1 == "":
+						final_add1 = "("+Instruction.in1+")"
+
+					print "\tmovl %s ,"%(final_add1),"%eax"
+					#address_desc[Instruction.in1] = []
+					#address_desc[]
+				else :
+						final_add1= "$%s"%(Instruction.in1)
+						print "\tmovl %s,"%(final_add1)," %eax"
+
+ 
+
+				
+
+				addr = ""
+
+
+				if Instruction.in2 in address_desc:
+					
+					lists = address_desc[Instruction.in2]
+					for reg in register_desc:
+						if reg in lists :
+							addr = reg 
+							print "\tidiv %s"%(reg)							
+							break
+					if addr == "" : 
+						for item in register_desc['%ebx'] :
+							print "\tmovl %ebx, ","%s" %item
+							address_desc[item].remove('%ebx')
+
+						for vari in address_desc :
+							if '%ebx' in address_desc[vari]:
+								address_desc[vari].remove('%ebx')
+
+						print "\tmovl %s, "%(Instruction.in2), "%ebx"
+						print "\tidiv %ebx"
+
+
+
+
+
+				else:
+
+					for item in register_desc['%ebx'] :
+							print "\tmovl %ebx, ","%s" %item
+							address_desc[item].remove('%ebx')
+
+					for vari in address_desc :
+						if '%ebx' in address_desc[vari]:
+							address_desc[vari].remove('%ebx')
+
+					
+
+					print "\tmovl $%s"%(Instruction.in2),", %ebx"
+					print "\tidiv %ebx"
+				
+
+				if Instruction.operator == '/' :
+				
+					address_desc[Instruction.out] = []
+					address_desc[Instruction.out].append('%eax')
+					register_desc['%eax'] = []
+					register_desc['%eax'].append(Instruction.out)
+					#register_desc['%eax'].append(Instruction.out)
+					#print "\tmovl %eax, ","%s"%(Instruction.out)
+					return
+				if Instruction.operator =='%' :
+
+					address_desc[Instruction.out] = []
+					address_desc[Instruction.out].append('%edx')
+					register_desc['%edx'] = []
+					register_desc['%edx'].append(Instruction.out)
+
+
+					return
+
+
+
+
+			if not Instruction.operator == '=':
+				L = ""
+				L = self.getreg(Instruction, Instruction.line_num)
+				if Instruction.in1 in symbol_table :
+					lists = address_desc[Instruction.in1]
+
+					Y_loc = Instruction.in1
+					# print Y_loc , L , "Sexs"
+					# print register_desc[L]
+
+					for addr in lists:
+						if addr in register_desc :
+							Y_loc = addr
+						
+					if L in register_desc:
+						if not Y_loc == L :
+							print "\tmovl ",Y_loc,", ", L
+						else:
+							print "\tmovl ",Y_loc,", ", Instruction.in1 
+					else:
+						if not Y_loc in register_desc:
+							for temp1 in register_desc:
+								if temp1 == "%eax":
+									for temp in register_desc[temp1]:
+										print "\tmovl ","%eax",", %s"%(temp)
+										address_desc[temp] = []
+										address_desc[temp].append(temp)
+										register_desc[temp1] = []
+										print "\tmovl ",Y_loc,", ", temp1
+										L = temp1
+										address_desc[Y_loc] = []
+										address_desc[Y_loc].append(temp1)
+										register_desc[temp1].append(Y_loc)	
+						else:
+							print "\tmovl ",Y_loc,", ", L		
+				else :
+					print "\tmovl $%s ,"%Instruction.in1,L
+				if Instruction.in2 in symbol_table: 
+					lists = address_desc[Instruction.in2]
+					Z_loc = Instruction.in2
+					for addr in lists:
+						if addr in register_desc :
+							Z_loc = addr
+				else:
+					Z_loc = "$%s"%(Instruction.in2)
+
+
+				'''
+
+				Y_add = ''
+
+				if Instruction.in1 in symbol_table : 
+					Z_add = ""
+					for items in address_desc[Instruction.in1]:
+						for registers in register_desc:
+							if items == registers:
+								Y_add = items
+								Z_add = items
+					if Y_add == '':
+						#print address_desc
+						Y_add = Instruction.in1
+						Z_add = "("+Instruction.in1 +")"
+
+					if Y_add == L :
+						for vari in register_desc[L]:
+							address_desc[vari].remove(L)
+							if vari not in address_desc[vari]:
+								address_desc[vari].append(vari)
+					else :
+						print "\tmovl %s" %(Z_add), ", ", L
+
+				else:
+					Y_add = Instruction.in1
+					print "\tmovl $%s"%(Y_add), ", ", L
+
+
+				Z_add = ''
+				if Instruction.in2 in symbol_table : 	
+					
+					for items in address_desc[Instruction.in2]:
+						if items in register_desc:
+							Z_add = items
+							break
+
+					if Z_add == '':
+						Z_add = "("+Instruction.in2+")"
+				else:
+					Z_add = "$"+Instruction.in2
+
+
+
+
+
+				if L in register_desc :
+					register_desc[L]= []
+					#register_desc[L].append(Instruction.out)
+					
+
+				address_desc[Instruction.out] = []
+				address_desc[Instruction.out].append(Instruction.out)  '''
+
+				
+
+				if Instruction.operator == '+' :
+					
+						print "\tadd %s" %(Z_loc), ", ", L
+					
+
+				if Instruction.operator == '-' :
+					
+						print "\tsub %s" %(Z_loc), ", ", L
+
+				if Instruction.operator == 'X' :
+					
+						print "\timul %s" %(Z_loc), ", ", L
+
+				#print "\tmovl %s ,"%L,"%s"%(Instruction.out)
+
+				address_desc[Instruction.out] = []
+				address_desc[Instruction.out].append(L)
+
+				if L in register_desc:
+					register_desc[L] = []
+					register_desc[L].append(Instruction.out)
+
+				# print L , register_desc[L] , "Sexx"
+
+				for reg in register_desc :
+					if not reg == L :
+						if Instruction.out in register_desc[reg] :
+							register_desc[reg].remove(Instruction.out)
+
+				if L in register_desc:
+					for vari in register_desc[L]:
+						if not vari == Instruction.out :
+							register_desc[L].remove(vari)
+
+				# for bugs in register_desc :
+				# 	if not bugs == L :
+				# 		if Instruction.out in register_desc[bugs]:
+				# 			register_desc[bugs].remove(Instruction.out)
+				if Instruction.in1 in symbol_table :
+					if line_information[Instruction.line_num][Instruction.in1].next_use == -99:
+						if not Instruction.in1 == Instruction.out: 
+							address_desc[Instruction.in1] = []
+							address_desc[Instruction.in1].append(Instruction.in1)
+							for addr in register_desc :
+								for vari in register_desc[addr] :
+									if vari == Instruction.in1:
+										register_desc[addr].remove(Instruction.in1)
+				if Instruction.in2 in symbol_table :
+					if line_information[Instruction.line_num][Instruction.in2].next_use == -99:
+						if not Instruction.out == Instruction.in2:
+							address_desc[Instruction.in2] = []
+							address_desc[Instruction.in2].append(Instruction.in2)
+							for addr in register_desc :
+								for vari in register_desc[addr] :
+									if vari == Instruction.in2:
+										register_desc[addr].remove(Instruction.in2)
+
+				return 
+
+				
+
+			
+
+						
+
+	def insert(self, Instruction):				#Inserting a new statement(Instruction)
+		self.listi.append(Instruction)
+
+	def set_leader(self,number):
+		self.leader = number
+
+	def end(self, line_num):			#Ending the block of instructions
+		
+		if self.listi == None:
+			return
+
+		
+
+		#print "Block_",self.label,":"
+		self.label = self.label + 1
+		self.end = line_num
+		lines = int(line_num) + 1
+		iteration=0
+		j =0 
+		for x in reversed(self.listi):
+			
+			lines = lines - 1
+			iteration = iteration + 1
+			
+			
+
+			if x.Instr_type == "Assignment" :
+				
+				# print Instruction.out, "HAITI"
+
+				for y in symbol_table:
+							
+							#print lines
+							# print lines , y, symbol_table[y].live, symbol_table[y].next_use, "OMG"
+							line_information[lines][y].set(y,symbol_table[y].live,symbol_table[y].next_use)
+							# print lines , y, line_information[lines][y].live, line_information[lines][y].next_use, "Sexx"
+							# for vari in symbol_table :
+							# 	line_information[lines][vari].symbol = y
+							# 	line_information[lines][vari].live = symbol_table[y].live
+							# 	line_information[lines][vari].next_use = symbol_table[y].next_use
+
+
+				if not x.operator == '=' :					
+
+					
+
+
+
+					if x.in2 in symbol_table:						
+						symbol_table[x.in2].set(x.in2,"LIVE",lines)
+					if x.in1 in symbol_table:	
+						symbol_table[x.in1].set(x.in1,"LIVE",lines)
+						
+					if x.out in symbol_table:						
+						symbol_table[x.out].set(x.out,"DEAD",-99)        #-99 corresponds to no next use
+
+					# print iteration , y, symbol_table[y].live, symbol_table[y].next_use, "Fuck"	
+				if x.operator == '=' :
+					if  x.out in symbol_table :						
+						symbol_table[x.out].set(x.out,"DEAD",-99)
+					if  x.in1 in symbol_table :						
+						symbol_table[x.in1].set(x.in1,"LIVE",lines)
+
+				# else :
+				# 	if not j == 0 :
+				# 		for var in line_information[lines]:
+				# 			line_information[lines][var] = line_information[lines-1][var]
+
+				# if x.in1 == 'i' and x.out == 'a':
+				# 	print symbol_table['i'].live,symbol_table['i'].next_use ,"Hell"
+				# 	print symbol_table['a'].live, symbol_table['a'].next_use,"HELL"
+
+				j = j + 1
+
+				# for var in line_information[lines] :
+				# 	print line_information[5][var].symbol, line_information[5][var].next_use, line_information[5][var].live, "K",
+				# print ""
+		
+		# for line in line_information: 
+		# 	for var in line :
+
+		# 		print line[var].symbol, line[var].next_use, line[var].live , "K" ,
+		# 	print "" 
+
+		for Ins in self.listi:			
+				
+				self.gencode(Ins)
+
+
+
+		for variables in address_desc :
+			for lists in address_desc[variables]:
+				for reg in register_desc:
+					if reg in lists :
+						print "\tmovl ",reg,", %s"%(variables)
+
+		
+		for variables in address_desc :
+			address_desc[variables] = []
+			address_desc[variables].append(variables)
+
+		for reg in register_desc :
+			register_desc[reg] = []
+
+		
+		#print address_desc
+		#print register_des
+
+		
+
+		
+
+	
+
+
+
+
+
+
+
+class Instruction:
+	 Instr_type = ""
+	 in1 =''; 
+	 in2 = '';
+	 out = '';
+	 speci = ''
+	 target=0;
+	 operator=""
+	 local = ""
+	 line_num = 0
+
+	 def op_check(self, operation):
+
+		list1 = ['+' , '-' , '%' ,'=' , '++' , '--' , '/' , 'X' , '<' , '>' , '==' , '>=' , '<=' , '!='] ;
+		list2 = ['goto' , 'IFgoto' ];
+		list3 = ["call" , "label" , "return" , "param", "exit"];
+		list4 = ['*' , '&'] ; 
+		if operation in list1:
+			self.operator = operation	 		
+			self.Instr_type = "Assignment"
+		if operation in list2 :
+			self.Instr_type = "jump"
+		if operation in list3 :
+			self.Instr_type = "function"
+		if operation in list4 :
+			self.Instr_type = "pointers"
+
+
+	 def insert(self, parts = [], *args):	 	
+		self.op_check(parts[1])
+		list1 = ['+' , '-' , '%'  , '++' , '--' , '/' , 'X' , '<' , '>' , '==' , '>=' , '<=' , '!='] ;
+
+		if parts[1] == 'print' :
+			self.operator = 'print'
+			self.in1 = parts[2]
+
+		if(self.Instr_type == "Assignment"):
+			if parts[1] in list1:
+				self.out = parts[2]
+				self.in1 = parts[3]
+				self.in2 = parts[4]
+				self.operator = parts[1]
+			if(parts[1] == '=') :
+
+				self.out=parts[2]
+				self.in1 = parts[3]
+				self.operator = parts[1]
+
+		if parts[1] == "scanf" :
+			self.operator = "scanf"
+			self.out  = parts[2]
+
+		if parts[1] == "printf" :
+			self.operator = "printf"
+			self.out  = parts[2]
+
+
+		if(self.Instr_type == "jump"):
+			if parts[1] == 'IFgoto':
+				self.operator = 'IFgoto'
+				self.target = (parts[-2])
+				self.out = parts[2]
+				self.in1 = parts[-4]
+				self.in2 = parts[-3]
+				self.speci = parts[-1]
+			if parts[1] == 'goto':
+				self.operator = 'goto'
+				self.out = parts[-2]
+				self.target = int(parts[-2])
+				self.speci = parts[-1]
+
+		if self.Instr_type == "function":
+			if parts[1] == 'exit' :
+				self.operator = 'exit'
+			if parts[1] == 'call':
+				self.operator = 'call'
+				self.in1 = parts[2]
+				if len(parts) == 4:
+					self.in2 = parts[3]
+			if parts[1][0:3] == 'ret':
+				self.operator = 'return'
+				if len(parts) == 3:
+					self.in1 = parts[2]
+				else:
+					self.in1 = '-999'
+			if parts[1] == 'label':
+				self.operator = 'label'
+				self.in1 = parts[2]
+			if parts[1] == '' :
+				self.in1 = parts[2]
+				self.operator = 'param'
+
+		if self.Instr_type == 'pointers':
+			if parts[1] == '*':
+				self.out = parts[2]
+				self.operator = "*"
+				self.in1 = parts[3]
+			if parts[1] == '&':
+				self.out = parts[2]
+				self.in1 = parts[3]
+				self.operator = '&'
+				
+
+def copy_d(in1, in2):
+	
+	for x in in1:
+		in2[x] = entry(x,"DEAD",-99)
+
+def copy(l1,l2):
+
+	for i in range(l1,l2):
+		
+		copy_d(line_information[i],line_information[i+1])
+
+	
+
+
+symbol_table = {}
+list_blocks = []  #This corresponds to a list of blocks. The whole program is divided into a list of blocks.
+
+block1 =None;
+list_numbers = [] #This corresponds to the goto line numbers indicating that a new bloack should start here
+i =0;
+special_var = 1
+line_information.append({})
+
+name=sys.argv[1]
+lines = [line.rstrip() for line in open(name)]
+variables = {}
+leaders.append(1)
+for line in lines :
+	data = line.split(",")
+	lists = {"jmp","je","jg","jge","jle","jl","jne"}
+	for item in data[2:]:
+		if item not in lists and not item.isdigit() and not data[1] == 'goto' and not data[1] == 'IFgoto' and not item[0] == '-'  and not data[1] == 'label'  and not data[1] == 'call' and not data[1] == 'return' and not data[2] == 'print' :
+		
+
+
+			variables[item] = '1'
+			symbol_table[item] = entry(item,"DEAD",-99)
+
+
+	
+		continue
+		#print data
+
+	if data[1] == 'IFgoto' and not int(data[5]) in leaders:
+				leaders.append(int(data[5]))
+
+
+	if data[1] == 'IFgoto' and not (int(data[0])+1) in leaders :
+		leaders.append(int(data[0])+1)
+		continue
+
+	if data[1] == 'goto' and not int(data[2]) in leaders:
+				leaders.append(int(data[2]))
+				continue
+
+	if data[1] == 'label' and not int(data[0]) in leaders :
+		if not int(data[0]) in leaders:
+			leaders.append(int(data[0]))
+
+		list_func.append(data[2])
+		continue
+	
+
+
+leaders.sort()
+
+
+print ".section .data"
+
+
+	
+
+for var in variables :
+	if not var == 'foo' :
+		print "\t ",var,":"
+		print "\t\t.int 0"
+
+if not 'b' in variables :	
+	print "\t b:"
+	print "\t\t.int 0"
+	
+print "\t newline:"
+print '\t\t.ascii "\\n" '
+print ".section .text"
+print "\n"
+print ".globl _start"
+print "\n"
+
+for var in variables:
+	address_desc[var] = var
+
+exits = exit(0)
+
+print "_start:"
+line_k = 0
+for line in lines:
+	i = i+1
+	line_k = line_k + 1
+	#print "HELl"
+	data = line
+	parts = data.split(",")  # parts is an array containing an line number,operation, destination variable, source variables
+	line_information.append({})
+	list_sample = ['goto','IFgoto','label']
+
+
+
+
+	for var in variables:
+		line_information[int(parts[0])][var] = entry(var,"DEAD",-99)
+
+	
+	if parts[1] == 'exit' : 
+		if block1 == None:
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+
+			block1 = block(instruct, int(parts[0])) #Starting a new block of code
+
+		else: 
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+			block1.insert(instruct)
+		#print block1.listi[-1].operator, "LINE "
+		
+		block1.end(str(int(parts[0])))
+		block1 = None
+		continue
+
+
+
+	if parts[1] == 'return' :
+
+		if block1 == None:
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+
+			block1 = block(instruct, int(parts[0])) #Starting a new block of code
+
+		else: 
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+			block1.insert(instruct)
+		#print block1.listi[-1].operator, "LINE "
+		
+		block1.end(str(int(parts[0])))
+		block1 = None
+		continue
+
+
+
+
+		
+			 
+
+	
+	
+	if parts[1] in list_sample:		
+		if parts[1] == 'goto' :
+
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+			if block1 == None:
+				instruct = Instruction() 
+				instruct.line_num = int(parts[0])
+				instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+
+				block1 = block(instruct, int(parts[0])) #Starting a new block of code
+
+			else: 
+				instruct = Instruction() 
+				instruct.line_num = int(parts[0])
+				instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+				block1.insert(instruct)
+
+
+			
+			block1.end(str(int(parts[0])))
+
+			if parts[0] == "" : 
+
+				if int(parts[0]) in leaders and not int(parts[0]) == 1:
+			#print "DICK"
+
+			
+					
+						print "Block_%s"%(str(leaders.index(int(parts[0])))), ":\n"
+
+
+
+
+
+
+
+
+			#copy(special_var, int(parts[0]))
+			#special_var = int(parts[0])+1
+
+			list_blocks.append(block1)
+			list_numbers .append(parts[-1])
+			block1 = None;
+		
+		
+
+
+
+		if parts[1] == 'IFgoto' :
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+			block1.insert(instruct)
+			
+			#copy(special_var, int(parts[0]))
+			special_var = int(parts[0])+1
+			
+
+			block1.end(str(int(parts[0])))		
+
+			if parts[0] == "" : 
+				if int(parts[0]) in leaders and not int(parts[0]) == 1:
+		
+
+			
+					
+						print "Block_%s"%(str(leaders.index(int(parts[0])))), ":\n"
+
+
+
+
+
+			list_blocks.append(block1)
+			list_numbers.append(parts[-1])
+			block1 = None;
+
+
+
+		'''if parts[1] == 'call' :
+			copy(special_var, int(parts[0]))
+			special_var = int(parts[0])+1
+			block1.end(str(int(parts[0])-1))
+
+			if int(parts[0]) in leaders and not int(parts[0]) == 1:
+		#print "DICK"
+
+		
+				if parts[1] == 'label' :
+					print parts[2], ":\n"
+				else:
+					print "Block_",leaders.index(int(parts[0])), ":\n"
+
+
+
+
+
+
+
+
+			list_blocks.append(block1)
+			block1 = None;
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			instruct.insert(parts)
+			block1 = block(instruct, parts[0]) #Starting a new block of code
+			block1.end  = parts[0]
+			list_blocks.append(block1)
+			block1 = None  '''
+
+		if parts[1] == 'label' :
+
+			
+			if not  block1 == None :
+
+				#copy(special_var, int(parts[0]))
+				special_var = int(parts[0])+1
+				block1.end(str(int(parts[0])-1))
+				list_blocks.append(block1)
+				block1 = None;	
+
+
+			if int(parts[0]) in leaders and not int(parts[0]) == 1:
+		#print "DICK"
+
+		
+				if parts[1] == 'label' :
+					print parts[2], ":\n"
+				
+			
+			
+			
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			#list_numbers.append(parts[-1])
+			instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+			block1 = block(instruct, parts[0]) #Starting a new block of code
+			
+		
+		continue
+
+
+	if parts[1] == 'Param':
+		instruct = Instruction()
+		instruct.line_num = int(parts[0])
+		instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction		
+		block1 = block(instruct, int(parts[0])) #Starting a new block of code
+
+
+
+
+	if parts[0] == '1' :
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+			
+			block1 = block(instruct, int(parts[0])) #Starting a new block of code
+			for x in parts[2:]:
+					if x in symbol_table:
+						
+						#if  x[0:2] == 't_':
+							
+							#symbol_table[x] =  entry(x,"DEAD", -99)			
+							address_desc[x] = [x]				
+							line_information[special_var][x] = entry(x,"DEAD",-99)
+							
+
+			continue
+
+
+
+	if int(parts[0])  in leaders:
+		#copy(special_var, int(parts[0]))
+
+		
+		special_var = int(parts[0])+1
+
+		if not block1 == None:
+			block1.end(str(int(parts[0])-1))
+
+
+
+
+
+		if int(parts[0]) in leaders :
+		#print "DICK"
+
+		
+				
+					print "Block_%s"%(str(leaders.index(int(parts[0])))), ":\n"
+		list_blocks.append(block1)
+		block1 = None;
+
+		if block1 == None:
+
+			instruct = Instruction() 
+			instruct.line_num = int(parts[0])
+			instruct.insert(parts) #Create a new instuction. The above line and this line both are for the same instruction
+
+			block1 = block(instruct, int(parts[0])) #Starting a new block of code
+			
+
+
+		for x in parts[2:]:
+			if x in symbol_table:
+				#if  x[0:2] == 't_':		
+					if not x.isdigit():
+						symbol_table[x] =  entry(x,"DEAD", -99)
+						address_desc[x] = [x]
+						line_information[special_var][x] = entry(x,"DEAD",-99)
+		
+
+
+
+	else:
+
+		instruct = Instruction() 
+
+		instruct.line_num = int(parts[0])
+
+		instruct.insert(parts)
+
+
+		
+		if block1 == None:
+			block1 = block(instruct,int(parts[0]))
+		else:
+			block1.insert(instruct)
+		if block1.leader == 0 :
+			block1.leader = int(parts[0])
+
+
+		for x in parts[2:]:
+			if x in symbol_table:
+				#if x[0:2] == 't_':
+					if not x.isdigit():
+						#symbol_table[x] = entry(x,"DEAD", -99)
+						address_desc[x] = [x]
+						line_information[special_var][x] = entry(x,"DEAD",-99)
+
+
+if line_k == len(lines):
+	'''if block1 == None:
+		instruct = Instruction() 
+		instruct.line_num = int(parts[0])
+		instruct.insert(parts) 
+		block1 = block(instruct, int(parts[0]))
+		block1.end(str(int(parts[0])))
+		list_blocks.append(block1)
+	else:
+		instruct = Instruction() 
+		instruct.line_num = int(parts[0])
+		instruct.insert(parts)
+		block1.insert(instruct) '''
+	if not block1 == None:
+		block1.end(str(int(parts[0])))
+
+
+
+print "print:"
+print '\tmovl $0, %edi'
+print '\tcall loop'
+
+print '\tmov $4 , %eax'
+print '\tmov  $1, %ebx'
+print'\tmov  $newline, %ecx '
+#print '\tmov  $10, %edx'
+print '\tint $0x80 '
+print '\tret'  
+print 'loop:'
+print '\tmov $10, %ecx '
+print '\tmovl $0, %edx '
+print '\tdiv %ecx'
+print '\tadd $48, %edx '
+print '\tpushl %edx '
+print '\tadd $1, %edi '
+print '\tcmp $0, %eax '
+print '\tjnz loop '
+print '\tjmp true '
+print '\tret'
+print 'true:'
+print '\tpopl %edx '
+print '\tmov %edx, b '
+print '\tmov $4 , %eax'
+print '\tmov  $1, %ebx '
+print '\tmov  $b, %ecx '
+print '\tmov  $1, %edx'
+print '\tint $0x80 '
+print '\tsub $1, %edi '
+print '\tcmp $0, %edi '
+print '\tjnz true '
+print '\tret'
+
+
+						
+
+
+
+		
+
+
+
+
+
+
+
+
+
+

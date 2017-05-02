@@ -1,0 +1,23 @@
+a = 0;
+d = 13;
+while a < 5 do 
+ a = a+ 1;
+ d = d +1;
+ if d > 14 then 
+ puts d ;
+ end
+ puts a;
+ end
+d = 23;
+puts d;
+
+a = 5;
+
+c = 10;
+if a != 6 then
+  while a < 10 || c > 8 do
+    puts a;
+    a = a + 1;
+  end
+puts c;
+end
